@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="color_primary">#53B175</color>
+    <color name="rippleColor">#CACACA</color>
+    <color name="dark_gray">#8F8F8F</color>
+    <color name="light_gray">#E1E1E1</color>
+
+    <color name="search_bg_color">#F2F3F2</color>
+
+    <color name="text_black">#181725</color>
+    <color name="text_label_black">#7C7C7C</color>
+    <color name="pink">#F5D8FA</color>
+
+</resources>
+<!--
+<color name="text_black">#181725</color>
+<color name="text_label_black">#7C7C7C</color>-->

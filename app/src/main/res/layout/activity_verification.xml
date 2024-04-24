@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".activity.VerificationActivity">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_back"
+            app:tint="@color/black" />
+
+    </RelativeLayout>
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_170sdp"
+        app:lottie_autoPlay="true"
+        android:layout_below="@id/header"
+        android:layout_centerHorizontal="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/verify_otp"/>
+
+    <TextView
+        android:id="@+id/sub_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/ll_pin_lay"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:fontFamily="@font/gilroy_medium"
+        android:gravity="center"
+        android:padding="@dimen/_5sdp"
+        android:text="@string/enter_your_4_digit_code"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_pin_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/rel_resend_code"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/edt_one"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:autofillHints="password"
+            android:background="@drawable/custom_bg_edt_pin"
+            android:focusable="false"
+            android:gravity="center"
+            android:maxLength="1"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/edt_two"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:autofillHints="password"
+            android:background="@drawable/custom_bg_edt_pin"
+            android:focusable="false"
+            android:gravity="center"
+            android:maxLength="1"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/edt_three"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:autofillHints="password"
+            android:background="@drawable/custom_bg_edt_pin"
+            android:focusable="false"
+            android:gravity="center"
+            android:maxLength="1"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/edt_four"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:autofillHints="password"
+            android:background="@drawable/custom_bg_edt_pin"
+            android:focusable="false"
+            android:gravity="center"
+            android:maxLength="1"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_resend_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/lay_frame"
+        android:layout_marginBottom="@dimen/_20sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:fontFamily="@font/gilroy_bold"
+            android:text="@string/resend_code"
+            android:textColor="@color/color_primary"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/btn_otp_verify"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/background_circle"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/baseline_navigate_next_24" />
+
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:id="@+id/lay_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginVertical="@dimen/_5sdp"
+            android:background="@color/dark_gray"
+            android:columnCount="3"
+            android:orientation="horizontal"
+            android:rowCount="4">
+
+            <TextView
+                android:id="@+id/text_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd=".3dp"
+                android:layout_marginBottom=".3dp"
+                android:background="@drawable/custom_bg_edt_pin_btn"
+                android:fontFamily="@font/gilroy_medium"
+                android:gravity="center"
+                android:padding="@dimen/_13sdp"
+                android:text="@string/_1"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:background="@drawable/custom_bg_edt_pin_btn"
+                android:fontFamily="@font/gilroy_medium"
+                android:gravity="center"
+                android:padding="@dimen/_13sdp"
+                android:text="@string/_2"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginStart=".3dp"
+                android:layout_marginBottom=".3dp"
+                android:background="@drawable/custom_bg_edt_pin_btn"
+                android:fontFamily="@font/gilroy_medium"
+                android:gravity="center"
+                android:padding="@dimen/_13sdp"
+                android:text="@string/_3"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_four"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd=".3dp"
+                android:layout_marginBottom=".3dp"
+                android:background="@drawable/custom_bg_edt_pin_btn"
+                android:fontFamily="@font/gilroy_medium"
+                android:gravity="center"
+                android:padding="@dimen/_13sdp"
+                android:text="@string/_4"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_five"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:background="@drawable/custom_bg_edt_pin_btn"
+                android:fontFamily="@font/gilroy_medium"
+                android:gravity="center"
+                android:padding="@dimen/_13sdp"
+                android:text="@string/_5"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_six"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginStart=".3dp"
+                android:layout_marginBottom=".3dp"
+                android:background="@drawable/custom_bg_edt_pin_btn"
+                android:fontFamily="@font/gilroy_medium"
+                android:gravity="center"
+                android:padding="@dimen/_13sdp"
+                android:text="@string/_6"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_seven"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd=".3dp"
+                android:layout_marginBottom=".3dp"
+                android:background="@drawable/custom_bg_edt_pin_btn"
+                android:fontFamily="@font/gilroy_medium"
+                android:gravity="center"
+                android:padding="@dimen/_13sdp"
+                android:text="@string/_7"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_eight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:background="@drawable/custom_bg_edt_pin_btn"
+                android:fontFamily="@font/gilroy_medium"
+                android:gravity="center"
+                android:padding="@dimen/_13sdp"
+                android:text="@string/_8"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_nine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginStart=".3dp"
+                android:layout_marginBottom=".3dp"
+                android:background="@drawable/custom_bg_edt_pin_btn"
+                android:fontFamily="@font/gilroy_medium"
+                android:gravity="center"
+                android:padding="@dimen/_13sdp"
+                android:text="@string/_9"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd=".3dp"
+                android:background="@drawable/custom_bg_edt_pin_btn"
+                android:fontFamily="@font/gilroy_medium"
+                android:gravity="center"
+                android:padding="@dimen/_13sdp"
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp" />
+
+            <TextView
+                android:id="@+id/text_zero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:background="@drawable/custom_bg_edt_pin_btn"
+                android:fontFamily="@font/gilroy_medium"
+                android:gravity="center"
+                android:padding="@dimen/_13sdp"
+                android:text="@string/_0"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/image_clear"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginStart=".3dp"
+                android:background="@drawable/custom_bg_edt_pin_btn"
+                android:gravity="center"
+                android:padding="@dimen/_13sdp"
+                android:src="@drawable/ic_clear" />
+
+        </GridLayout>
+
+    </FrameLayout>
+
+</RelativeLayout>

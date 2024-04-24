@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_bg"
+    tools:context=".activity.OnboardingActivity">
+
+
+    <TextView
+        android:id="@+id/text_welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_above="@id/text_store"
+        android:text="Welcome "
+        android:fontFamily="@font/gilroy_bold"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_35sdp" />
+
+    <TextView
+        android:id="@+id/text_store"
+        android:layout_above="@id/text_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/gilroy_bold"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="to our store "
+        android:textColor="@color/white"
+        android:textSize="@dimen/_25sdp" />
+    <TextView
+        android:id="@+id/text_3"
+        android:layout_above="@id/btn_get_started"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:fontFamily="@font/gilroy_medium"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:text="Ger your groceries in as fast as one hour"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_15sdp" />
+
+    <TextView
+        android:id="@+id/btn_get_started"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/_14sdp"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:layout_marginEnd="@dimen/_14sdp"
+        android:layout_marginBottom="@dimen/_50sdp"
+        android:background="@drawable/custom_bg_btn"
+        android:gravity="center"
+        android:padding="@dimen/_10sdp"
+        android:text="Get Started"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12sdp" />
+
+
+</RelativeLayout>
