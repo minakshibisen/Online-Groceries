@@ -74,10 +74,14 @@ class SignUpActivity : AppCompatActivity() {
                                 )
 
                             )
-                        } else
-                            Toast.makeText(
-                                this@SignUpActivity, response.body()!!.msg, Toast.LENGTH_SHORT
-                            ).show()
+                        } else  binding.textLogin.setOnClickListener {
+                            startActivity(
+                                Intent(
+                                    this@SignUpActivity,
+                                    LoginActivity::class.java))
+                        }
+
+
                     } else
                         Toast.makeText(
                             this@SignUpActivity, response.body()!!.msg, Toast.LENGTH_SHORT

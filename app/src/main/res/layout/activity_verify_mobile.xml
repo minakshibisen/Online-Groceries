@@ -63,7 +63,7 @@
             android:drawablePadding="@dimen/_15sdp"
             android:hint="@string/_9876543210"
             android:inputType="number"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/light_gray"
             android:textSize="@dimen/_15sdp" />
 
     </RelativeLayout>
