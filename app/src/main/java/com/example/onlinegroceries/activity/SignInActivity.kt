@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.example.onlinegroceries.MainActivity
 import com.example.onlinegroceries.databinding.ActivitySignInBinding
@@ -27,12 +28,11 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        session = Session(this)
-        binding.textManualLogin.setOnClickListener {
-            getLoginManual()
-            startActivity(Intent(this, VerifyMobileActivity::class.java))
-        }
+        session = Session(this)/* binding.textManualLogin.setOnClickListener {
 
+
+         }*/
+        getLoginManual()
     }
 
     private fun getLoginManual() {
@@ -41,23 +41,58 @@ class SignInActivity : AppCompatActivity() {
         RetrofitClient.getInstance().getLoginType(
             map
         ).enqueue(object : Callback<LoginTypeModel> {
+            @SuppressLint("SuspiciousIndentation")
             override fun onResponse(
                 call: Call<LoginTypeModel>,
                 response: Response<LoginTypeModel>,
             ) {
-                if (response.code()==200){
+                if (response.code() == 200) {
 
-                    if (response.body()!=null){
+                    if (response.body() != null) {
+
+                        if (response.body()!!.result.equals(true)) {
+                            var data = response.body()!!.data
+
+                            if (binding.textContinueGoogle.text == "true") binding.textContinueGoogle.visibility =
+                                View.VISIBLE
+                            else binding.textContinueGoogle.visibility = View.GONE
+
+                            if (binding.textGetContinueFacebook.text == "true") binding.textGetContinueFacebook.visibility =
+                                View.VISIBLE
+                            else binding.textGetContinueFacebook.visibility = View.GONE
+
+                            if (data.method.contentEquals("phone")) {
+
+                                binding.textManualLogin.setOnClickListener {
+                                    startActivity(
+                                        Intent(
+                                            this@SignInActivity, VerifyMobileActivity::class.java
+                                        )
+
+                                    )
+                                }
 
 
+                            } else {
+                                startActivity(
+                                    Intent(
+                                        this@SignInActivity, LoginActivity::class.java
+                                    )
+
+                                )
+                            }
+
+                        }
 
 
+                    } else {
 
-                    }else{}
+                    }
 
 
+                } else {
 
-                }else{}
+                }
 
 
             }

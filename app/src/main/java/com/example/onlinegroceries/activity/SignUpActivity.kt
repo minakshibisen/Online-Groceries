@@ -19,6 +19,7 @@ import retrofit2.Response
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var session: Session
+    private var phone = "7694930451"
     @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +27,7 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         session = Session(this)
+
 
         binding.textSignup.setOnClickListener {
 
@@ -41,7 +43,7 @@ class SignUpActivity : AppCompatActivity() {
                 binding.edtPassword.error ="please enter Password"
                 binding.edtPassword.requestFocus()
             }else
-            signup("phone",
+            signup(phone,
                 binding.edtUserName.text.toString(),
                 binding.edtEmail.text.toString(),
                 binding.edtPassword.text.toString())
@@ -49,9 +51,9 @@ class SignUpActivity : AppCompatActivity() {
 
     }
 
-    private fun signup(phone: String?, username: String?, email: String?, password: String?) {
+    private fun signup( phone:String,username: String?, email: String?, password: String?) {
         val map: MutableMap<String, String?> = HashMap()
-        map["phone"] = phone.toString()
+        map["phone"] = phone
         map["username"] = username.toString()
         map["email"] = email.toString()
         map["password"] = password.toString()
@@ -64,9 +66,14 @@ class SignUpActivity : AppCompatActivity() {
             ) {
                 if (response.code() == 200) {
                     if (response.body() != null) {
-                        if (response.body()!!.result == true) {
+                        if (response.body()!!.result) {
 
                             Log.e("TAG", "onResponse: gfdhgf", )
+
+                          var data = response.body()!!.data
+                            data.phone
+
+
 
                             startActivity(
                                 Intent(
