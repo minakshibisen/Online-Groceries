@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import com.example.onlinegroceries.MainActivity
 import com.example.onlinegroceries.R
 import com.example.onlinegroceries.databinding.ActivitySplashBinding
 
@@ -18,7 +19,7 @@ class SplashActivity : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed({
 
-            startActivity(Intent(this,OnboardingActivity::class.java))
+            startActivity(Intent(this,MainActivity::class.java))
             finish()
         }, 3000)
 

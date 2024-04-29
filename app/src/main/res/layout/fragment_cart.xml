@@ -33,4 +33,10 @@
         android:layout_marginTop="@dimen/_3sdp"
         android:background="@color/light_gray" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recycler_cart"
+        android:layout_margin="@dimen/_10sdp"/>
+
 </LinearLayout>

@@ -31,16 +31,15 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnContinueGoogle.setOnClickListener {
 
-            login( session.getUserName(),binding.edtEmail.text.toString(),binding.edtPassword.text.toString())
+            login(binding.edtEmail.text.toString(),binding.edtPassword.text.toString())
 
         }
 
     }
 
-    private fun login(username:String?,email: String?, password: String?)
+    private fun login(email: String?, password: String?)
     {
         val map: MutableMap<String, String?> = HashMap()
-        map["username"] = username
         map["email"] = email.toString()
         map["password"] = password.toString()
 
@@ -56,13 +55,6 @@ class LoginActivity : AppCompatActivity() {
                         if (response.body()!!.result) {
 
                             Log.e("TAG", "onResponse: gfdhgf", )
-                            var  data = response.body()!!.data
-
-                           session.getUserName().toString()
-                            data.email
-                            data.phone
-
-
 
                             startActivity(
                                 Intent(
@@ -71,7 +63,6 @@ class LoginActivity : AppCompatActivity() {
 
                             )
                         }
-
 
                     } else
                         Toast.makeText(

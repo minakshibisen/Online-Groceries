@@ -65,8 +65,9 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/banner"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_150sdp"
+            android:layout_height="@dimen/_120sdp"
             android:layout_below="@id/rell_search"
+            android:layout_marginHorizontal="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:background="@color/white"
             app:cardBackgroundColor="#fff">
@@ -96,7 +97,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/banner"
             android:layout_marginHorizontal="@dimen/_10sdp"
-            android:layout_marginVertical="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_5sdp">
 
             <TextView
@@ -179,7 +179,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/recy_best_selling"
             android:layout_marginHorizontal="@dimen/_10sdp"
-            android:layout_marginVertical="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_5sdp">
 
             <TextView

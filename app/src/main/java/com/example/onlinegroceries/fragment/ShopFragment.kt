@@ -65,7 +65,7 @@ private lateinit var binding:FragmentShopBinding
         slideModelArrayList1.add(slideModel3)
         binding.imageSlider1.setImageList(slideModelArrayList1, ScaleTypes.FIT)
 
-        //val slideModel1 = SlideModel(R.drawable.slider4, ScaleTypes.FIT)
+        //val slideModel1 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
       //  val slideModel21 = SlideModel(R.drawable.slider5, ScaleTypes.FIT)
 
         return binding.root

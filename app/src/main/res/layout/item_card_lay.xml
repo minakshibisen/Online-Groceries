@@ -1,79 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <androidx.cardview.widget.CardView
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/_5sdp">
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/bg_shop_layout"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_5sdp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical">
+        <View
+            android:id="@+id/view_fruit"
+            android:layout_width="@dimen/_75sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/img_banana" />
+
+
+        <TextView
+            android:id="@+id/text_fruit_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view_fruit"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/gilroy_bold"
+            android:text="@string/organic_banana"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:id="@+id/text_fruit_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_fruit_name"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/gilroy_medium"
+            android:text="@string/_7pcs_priceg"
+            android:textColor="@color/text_label_black"
+            android:textFontWeight="400"
+            android:textSize="@dimen/_8sdp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_fruit_count">
+
+
+            <TextView
+                android:id="@+id/text_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/gilroy_bold"
+                android:text="$4.99"
+                android:textColor="@color/black"
+                android:textFontWeight="400"
+                android:textSize="@dimen/_14sdp" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_5sdp"
-                android:layout_marginVertical="@dimen/_5sdp"
-                android:src="@drawable/img_banana" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:fontFamily="@font/gilroy_medium"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="43dp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_toEndOf="@+id/text_1"
+                android:background="@drawable/background_circle"
                 android:padding="@dimen/_5sdp"
-                android:text="Organic Bananas"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:fontFamily="@font/gilroy_medium"
-                android:paddingHorizontal="@dimen/_5sdp"
-                android:text="7pcs, Priceg"
-                android:textColor="@color/dark_gray"
-                android:textSize="10sp" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="@dimen/_5sdp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_gravity="start"
-                    android:fontFamily="@font/gilroy_medium"
-                    android:gravity="start"
-                    android:paddingHorizontal="@dimen/_5sdp"
-                    android:text="$4.99"
-                    android:textColor="@color/black"
-                    android:textSize="12sp" />
-
-                <ImageView
-                    android:layout_width="@dimen/_25sdp"
-                    android:layout_height="@dimen/_25sdp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:background="@drawable/background_circle"
-                    android:padding="@dimen/_5sdp"
-                    android:src="@drawable/baseline_add_24" />
-
-            </RelativeLayout>
-        </LinearLayout>
+                android:src="@drawable/baseline_add_24" />
 
 
-    </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+    </RelativeLayout>
 
 
-</RelativeLayout>
+</LinearLayout>

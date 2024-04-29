@@ -60,6 +60,7 @@ class SignUpActivity : AppCompatActivity() {
         RetrofitClient.getInstance().userSignUp(
             map
         ).enqueue(object : Callback<SignUpModel> {
+            @SuppressLint("SuspiciousIndentation")
             override fun onResponse(
                 call: Call<SignUpModel>,
                 response: Response<SignUpModel>,

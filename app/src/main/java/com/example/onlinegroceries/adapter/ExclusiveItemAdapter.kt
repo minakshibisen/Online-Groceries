@@ -25,7 +25,7 @@ class ExclusiveItemAdapter (context: Context?): RecyclerView.Adapter<ExclusiveIt
     override fun onBindViewHolder(holder: viewHolder, position: Int) {}
 
     override fun getItemCount(): Int {
-        return 2
+        return 4
     }
 
     inner class viewHolder(binding: GroceriesItemLayoutBinding) :

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
@@ -10,132 +10,130 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:orientation="vertical">
-
-        <View
-            android:id="@+id/view_fruit"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="@dimen/_50sdp"
-            android:layout_gravity="center"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:background="@drawable/img_banana"
-            android:padding="@dimen/_5sdp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/rell_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_centerHorizontal="true"
-        android:orientation="vertical">
-
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
             android:orientation="vertical">
 
+            <View
+                android:id="@+id/view_fruit"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:background="@drawable/img_banana"
+                android:padding="@dimen/_5sdp" />
+        </LinearLayout>
 
-            <TextView
-                android:id="@+id/text_fruit_name"
+        <LinearLayout
+            android:id="@+id/rell_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/text_fruit_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:text="@string/organic_banana"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/text_fruit_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/gilroy_medium"
+                    android:text="@string/_7pcs_priceg"
+                    android:textColor="@color/text_label_black"
+                    android:textSize="@dimen/_8sdp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:fontFamily="@font/gilroy_bold"
-                android:text="@string/organic_banana"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_12sdp" />
+                android:layout_margin="@dimen/_5sdp"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/text_fruit_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:fontFamily="@font/gilroy_medium"
-                android:text="@string/_7pcs_priceg"
-                android:textColor="@color/text_label_black"
-                android:textSize="@dimen/_8sdp" />
+
+                <ImageView
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/background_circle_white"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_minus"
+                    app:tint="@color/color_primary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:text="1"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp" />
+
+                <ImageView
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/background_circle_white"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/baseline_add_24"
+                    app:tint="@color/color_primary" />
+            </LinearLayout>
 
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_5sdp"
-            android:orientation="horizontal">
-
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <ImageView
-                android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_25sdp"
-                android:layout_margin="@dimen/_5sdp"
-                android:background="@drawable/background_circle_white"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:padding="@dimen/_5sdp"
-                android:src="@drawable/ic_minus"
-                app:tint="@color/color_primary" />
+                android:src="@drawable/ic_close" />
 
             <TextView
+                android:id="@+id/text_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:fontFamily="@font/gilroy_bold"
-                android:text="1"
+                android:text="@string/_4_99"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_15sdp" />
+                android:textSize="@dimen/_14sdp" />
 
-            <ImageView
-                android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_25sdp"
-                android:layout_margin="@dimen/_5sdp"
-                android:background="@drawable/background_circle_white"
-                android:padding="@dimen/_5sdp"
-                android:src="@drawable/baseline_add_24"
-                app:tint="@color/color_primary" />
         </LinearLayout>
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_weight="1"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_marginStart="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginEnd="@dimen/_5sdp"
-            android:layout_marginBottom="@dimen/_5sdp"
-            android:padding="@dimen/_5sdp"
-            android:src="@drawable/ic_close" />
-
-        <TextView
-            android:id="@+id/text_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/gilroy_bold"
-            android:text="$4.99"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_14sdp" />
-
-    </LinearLayout>
-
     </RelativeLayout>
-
 
     <View
         android:layout_width="match_parent"

@@ -4,13 +4,9 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Toast
-import com.example.onlinegroceries.MainActivity
 import com.example.onlinegroceries.databinding.ActivitySignInBinding
 import com.example.onlinegroceries.model.LoginTypeModel
-import com.example.onlinegroceries.model.SignUpModel
 import com.example.onlinegroceries.remote.RetrofitClient
 import com.example.onlinegroceries.util.Session
 import com.example.onlinegroceries.util.popupDialog

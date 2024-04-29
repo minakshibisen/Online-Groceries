@@ -1,14 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.ExploreFragment">
+    android:layout_height="wrap_content"
+    android:background="@color/white">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:drawablePadding="@dimen/_10sdp"
+            android:fontFamily="@font/gilroy_bold"
+            android:text="Find Products"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp" />
+
+        <RelativeLayout
+            android:id="@+id/rell_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/location"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/custom_search_bg"
+            android:padding="@dimen/_10sdp">
+
+            <ImageView
+                android:id="@+id/img_search"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:src="@drawable/ic_search" />
+
+            <TextView
+                android:id="@+id/text_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_toRightOf="@id/img_search"
+                android:fontFamily="@font/gilroy_bold"
+                android:text=" Search Store"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recycler_explore"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_below="@+id/rell_search"/>
+
+
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>
