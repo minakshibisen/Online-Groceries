@@ -1,11 +1,10 @@
 package com.example.onlinegroceries.activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.onlinegroceries.R
 import com.example.onlinegroceries.databinding.ActivityVerificationBinding
 import com.example.onlinegroceries.model.VerifyOtp
@@ -37,7 +36,6 @@ class VerificationActivity : AppCompatActivity() {
             verifyOtp(phone,otp)
         }
 
-
         setKeys()
 
     }
@@ -59,7 +57,9 @@ class VerificationActivity : AppCompatActivity() {
                     if (response.code() == 200) {
                         if (response.body() != null) {
                             if (response.body()!!.result.equals(true)) {
-                                Log.e("TAG", "onResponse: ewqqer", )
+                                Log.e("TAG", "onResponse: ewqqer")
+
+
                                 startActivity(
                                     Intent(
                                         this@VerificationActivity,

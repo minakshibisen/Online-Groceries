@@ -36,7 +36,7 @@
         <nl.joery.animatedbottombar.AnimatedBottomBar
             android:id="@+id/bottomBar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_height="@dimen/_50sdp"
             android:layout_alignParentBottom="true"
             android:background="@color/color_primary"
             app:abb_indicatorAppearance="round"
