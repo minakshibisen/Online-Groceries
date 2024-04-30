@@ -17,8 +17,8 @@ import com.example.onlinegroceries.adapter.ExclusiveProductAdapter
 import com.example.onlinegroceries.adapter.ProductItemAdapter
 import com.example.onlinegroceries.databinding.FragmentShopBinding
 import com.example.onlinegroceries.model.BannerModel
-import com.example.onlinegroceries.model.VerifyPhoneModel
 import com.example.onlinegroceries.remote.RetrofitClient
+import com.example.onlinegroceries.util.Session
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,16 +26,19 @@ import retrofit2.Response
 
 class ShopFragment : Fragment() {
 
-private lateinit var binding:FragmentShopBinding
-    private val slideModelArrayList1: ArrayList<SlideModel> = ArrayList<SlideModel>()
+    private lateinit var binding: FragmentShopBinding
+
+    private lateinit var session: Session
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = FragmentShopBinding.inflate(inflater,container,false)
-      //  val userId:String? = intent.getStringExtra("userId")
+        binding = FragmentShopBinding.inflate(inflater, container, false)
+        session = Session(context)
+
+
 
 
         binding.recyExclusive.adapter = ExclusiveProductAdapter(context)
@@ -65,26 +68,29 @@ private lateinit var binding:FragmentShopBinding
             false
         )
 
-       val slideModel = SlideModel(R.drawable.banner, ScaleTypes.FIT)
-        slideModelArrayList1.add(SlideModel(R.drawable.banner, ScaleTypes.FIT))
-        val slideModel2 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
-        val slideModel3 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
-        slideModelArrayList1.add(slideModel)
-        slideModelArrayList1.add(slideModel2)
-        slideModelArrayList1.add(slideModel3)
-        binding.imageSlider1.setImageList(slideModelArrayList1, ScaleTypes.FIT)
+        /*  val slideModel = SlideModel(R.drawable.banner, ScaleTypes.FIT)
+           slideModelArrayList1.add(SlideModel(R.drawable.banner, ScaleTypes.FIT))
+           val slideModel2 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
+           val slideModel3 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
+           slideModelArrayList1.add(slideModel)
+           slideModelArrayList1.add(slideModel2)
+           slideModelArrayList1.add(slideModel3)
+           binding.imageSlider1.setImageList(slideModelArrayList1, ScaleTypes.FIT)
 
-        //val slideModel1 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
-      //  val slideModel21 = SlideModel(R.drawable.slider5, ScaleTypes.FIT)
-        //getBannerlist()
+           //val slideModel1 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
+         //  val slideModel21 = SlideModel(R.drawable.slider5, ScaleTypes.FIT)
+           //getBannerlist()*/
+
+
+        getBannerlist(id.toString())
         return binding.root
 
 
     }
 
-    private fun getBannerlist(userId:String?) {
+    private fun getBannerlist(userId: String?) {
         val map: MutableMap<String, String?> = HashMap()
-        map["userid"] = userId.toString()
+        map["userId"] = userId.toString()
         RetrofitClient.getInstance().getBannerlist(
             map
         )?.enqueue(object : Callback<BannerModel> {
@@ -94,9 +100,11 @@ private lateinit var binding:FragmentShopBinding
             ) {
                 if (response.code() == 200) {
                     if (response.body() != null) {
-                        if (response.body()!!.result.equals(true))
-                        { Log.e("TAG", "onResponse: gfdhgdf")
-                            response.body()!!.data[0].toString()
+                        if (response.body()!!.result.equals(true)) {
+                            Log.e("TAG", "onResponse: gfdhgdf")
+                            var data = response.body()!!.data
+                            data[0].imageUrl
+                            data[0].validFrom
 
 
                         } else {
@@ -105,12 +113,13 @@ private lateinit var binding:FragmentShopBinding
                                 context, response.body()!!.msg, Toast.LENGTH_SHORT
                             ).show()
                         }
-                    }else{
-                        Toast.makeText(context,"ytuyu", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(context, "ytuyu", Toast.LENGTH_SHORT).show()
                     }
-                }else{
+                } else {
                     Toast.makeText(
-                        context,"status check", Toast.LENGTH_SHORT).show()
+                        context, "status check", Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
 
@@ -119,5 +128,5 @@ private lateinit var binding:FragmentShopBinding
             }
         })
     }
-    }
+}
 

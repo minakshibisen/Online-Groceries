@@ -56,7 +56,8 @@ class VerifyMobileActivity : AppCompatActivity() {
                                startActivity(
                                 Intent(
                                     this@VerifyMobileActivity, VerificationActivity::class.java
-                                ).putExtra("phone", binding.edtMobileNo.text.toString())
+                                ).putExtra("phone", binding.edtMobileNo.text.toString()
+                                )
 
                             )
                         } else {

@@ -19,6 +19,7 @@ import retrofit2.Response
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var session: Session
+    var phone="7694930451"
 
     @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +28,7 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         session = Session(this)
-        val phone: String? = intent.getStringExtra("phone")
+       // val phone: String? = intent.getStringExtra("phone")
 
 
         binding.textSignup.setOnClickListener {
@@ -44,7 +45,7 @@ class SignUpActivity : AppCompatActivity() {
                 binding.edtPassword.error ="please enter Password"
                 binding.edtPassword.requestFocus()
             }else
-            signup(phone,
+            signup(phone.toString(),
                 binding.edtUserName.text.toString(),
                 binding.edtEmail.text.toString(),
                 binding.edtPassword.text.toString())
