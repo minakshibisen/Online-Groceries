@@ -10,5 +10,6 @@ object Constants {
     const val signUp = "user/signup"
     const val getLoginType = "user/getLoginMethods"
     const val userLogin = "user/login"
+    const val getBanner = "user/getBannerList"
 
 }

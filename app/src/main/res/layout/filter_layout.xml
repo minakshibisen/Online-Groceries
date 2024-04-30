@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_5sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:src="@drawable/ic_close"
+            app:tint="@color/black" />
+
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:drawablePadding="@dimen/_10sdp"
+            android:fontFamily="@font/gilroy_bold"
+            android:text="Filter"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:background="@drawable/round_filter_bg"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_exclusive_offer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/gilroy_bold"
+            android:padding="@dimen/_5sdp"
+            android:text="Categories"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/_16sdp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:fontFamily="@font/gilroy_medium"
+            android:padding="@dimen/_5sdp"
+            android:text="Noodles &amp; Pasta"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/_12sdp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:fontFamily="@font/gilroy_medium"
+            android:padding="@dimen/_5sdp"
+            android:text="Chips &amp; Crisps"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/_12sdp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:fontFamily="@font/gilroy_medium"
+            android:padding="@dimen/_5sdp"
+            android:text="Eggs"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/_12sdp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:fontFamily="@font/gilroy_medium"
+            android:padding="@dimen/_5sdp"
+            android:text="Fast Food"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/gilroy_bold"
+            android:padding="@dimen/_5sdp"
+            android:text="Brand"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/_16sdp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:fontFamily="@font/gilroy_medium"
+            android:padding="@dimen/_5sdp"
+            android:text="Ifad"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/_12sdp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:fontFamily="@font/gilroy_medium"
+            android:padding="@dimen/_5sdp"
+            android:text="Cocola"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/_12sdp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:fontFamily="@font/gilroy_medium"
+            android:padding="@dimen/_5sdp"
+            android:text="Individual Collection"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/_12sdp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:fontFamily="@font/gilroy_medium"
+            android:padding="@dimen/_5sdp"
+            android:text="Kazi Farmas"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:id="@+id/btn_get_started"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:background="@drawable/custom_bg_btn"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:text="Apply Filter"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+

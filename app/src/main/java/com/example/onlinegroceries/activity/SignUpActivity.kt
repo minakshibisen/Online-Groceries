@@ -19,7 +19,7 @@ import retrofit2.Response
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var session: Session
-    private var phone ="9301978949"
+
     @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +27,7 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         session = Session(this)
+        val phone: String? = intent.getStringExtra("phone")
 
 
         binding.textSignup.setOnClickListener {
@@ -51,9 +52,9 @@ class SignUpActivity : AppCompatActivity() {
 
     }
 
-    private fun signup( phone:String,username: String?, email: String?, password: String?) {
+    private fun signup( phone:String?,username: String?, email: String?, password: String?) {
         val map: MutableMap<String, String?> = HashMap()
-        map["phone"] = phone
+        map["phone"] = phone.toString()
         map["username"] = username.toString()
         map["email"] = email.toString()
         map["password"] = password.toString()

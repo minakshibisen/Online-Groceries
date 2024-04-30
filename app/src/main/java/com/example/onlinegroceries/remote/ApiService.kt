@@ -1,5 +1,6 @@
 package com.example.onlinegroceries.remote
 
+import com.example.onlinegroceries.model.BannerModel
 import com.example.onlinegroceries.model.LoginModel
 import com.example.onlinegroceries.model.LoginTypeModel
 import com.example.onlinegroceries.model.SignUpModel
@@ -29,6 +30,8 @@ interface ApiService {
 
     @POST(Constants.userLogin)
     fun userLogin(@Body body: MutableMap<String, String?>): Call<LoginModel>
+    @POST(Constants.getBanner)
+    fun getBannerlist(@Body body: MutableMap<String, String?>): Call<BannerModel>
 
 
 }
