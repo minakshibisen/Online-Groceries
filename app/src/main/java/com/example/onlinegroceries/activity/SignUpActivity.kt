@@ -19,7 +19,7 @@ import retrofit2.Response
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var session: Session
-    var phone="7694930451"
+    var phone = "7898865002"
 
     @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,37 +28,36 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         session = Session(this)
-       // val phone: String? = intent.getStringExtra("phone")
+        val phone: String? = intent.getStringExtra("phone")
 
 
         binding.textSignup.setOnClickListener {
 
-            if (binding.edtUserName.text.isEmpty()){
-                binding.edtUserName.error ="please enter UserName"
+            if (binding.edtUserName.text.isEmpty()) {
+                binding.edtUserName.error = "please enter UserName"
                 binding.edtUserName.requestFocus()
             }
-            if (binding.edtEmail.text.isEmpty()){
-                binding.edtEmail.error ="please enter Email"
+            if (binding.edtEmail.text.isEmpty()) {
+                binding.edtEmail.error = "please enter Email"
                 binding.edtEmail.requestFocus()
             }
-            if (binding.edtPassword.text.isEmpty()){
-                binding.edtPassword.error ="please enter Password"
+            if (binding.edtPassword.text.isEmpty()) {
+                binding.edtPassword.error = "please enter Password"
                 binding.edtPassword.requestFocus()
-            }else
-            signup(phone.toString(),
-                binding.edtUserName.text.toString(),
+            } else signup(
+                phone,
                 binding.edtEmail.text.toString(),
-                binding.edtPassword.text.toString())
+                binding.edtPassword.text.toString()
+            )
         }
 
     }
 
-    private fun signup( phone:String?,username: String?, email: String?, password: String?) {
+    private fun signup(phone: String?, email: String?, password: String?) {
         val map: MutableMap<String, String?> = HashMap()
-        map["phone"] = phone.toString()
-        map["username"] = username.toString()
-        map["email"] = email.toString()
-        map["password"] = password.toString()
+        map["phone"] = phone
+        map["email"] = email
+        map["password"] = password
         RetrofitClient.getInstance().userSignUp(
             map
         ).enqueue(object : Callback<SignUpModel> {
@@ -70,36 +69,31 @@ class SignUpActivity : AppCompatActivity() {
                 if (response.code() == 200) {
                     if (response.body() != null) {
                         if (response.body()!!.result) {
+                           response.body()!!.data
 
-                            Log.e("TAG", "onResponse: gfdhgf", )
-
-                          var data = response.body()!!.data
-                            data.phone
-
-
-
-                            startActivity(
+                              startActivity(
                                 Intent(
                                     this@SignUpActivity, MainActivity::class.java
                                 )
 
                             )
-                        } else  binding.textLogin.setOnClickListener {
+
+
+                        } else binding.textLogin.setOnClickListener {
                             startActivity(
                                 Intent(
-                                    this@SignUpActivity,
-                                    LoginActivity::class.java))
+                                    this@SignUpActivity, LoginActivity::class.java
+                                )
+                            )
                         }
 
 
-                    } else
-                        Toast.makeText(
-                            this@SignUpActivity, response.body()!!.msg, Toast.LENGTH_SHORT
-                        ).show()
-                } else
-                    Toast.makeText(
+                    } else Toast.makeText(
                         this@SignUpActivity, response.body()!!.msg, Toast.LENGTH_SHORT
                     ).show()
+                } else Toast.makeText(
+                    this@SignUpActivity, response.body()!!.msg, Toast.LENGTH_SHORT
+                ).show()
             }
 
             override fun onFailure(call: Call<SignUpModel>, t: Throwable) {

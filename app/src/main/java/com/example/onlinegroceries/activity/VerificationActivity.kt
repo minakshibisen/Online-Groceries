@@ -35,7 +35,6 @@ class VerificationActivity : AppCompatActivity() {
         binding.btnOtpVerify.setOnClickListener {
             verifyOtp(phone,otp)
         }
-
         setKeys()
 
     }
@@ -64,7 +63,7 @@ class VerificationActivity : AppCompatActivity() {
                                     Intent(
                                         this@VerificationActivity,
                                         SignUpActivity::class.java
-                                    )
+                                    ).putExtra("phone","phone")
 
                                 )
                             } else

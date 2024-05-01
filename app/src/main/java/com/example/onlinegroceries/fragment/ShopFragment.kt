@@ -8,9 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.denzcoskun.imageslider.constants.ScaleTypes
-import com.denzcoskun.imageslider.models.SlideModel
-import com.example.onlinegroceries.R
 import com.example.onlinegroceries.adapter.BestShellingProductAdapter
 import com.example.onlinegroceries.adapter.ExclusiveItemAdapter
 import com.example.onlinegroceries.adapter.ExclusiveProductAdapter
@@ -33,13 +30,9 @@ class ShopFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-
+    ): View {
         binding = FragmentShopBinding.inflate(inflater, container, false)
         session = Session(context)
-
-
-
 
         binding.recyExclusive.adapter = ExclusiveProductAdapter(context)
         binding.recyExclusive.layoutManager = LinearLayoutManager(
@@ -67,7 +60,6 @@ class ShopFragment : Fragment() {
             LinearLayoutManager.HORIZONTAL,
             false
         )
-
         /*  val slideModel = SlideModel(R.drawable.banner, ScaleTypes.FIT)
            slideModelArrayList1.add(SlideModel(R.drawable.banner, ScaleTypes.FIT))
            val slideModel2 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
@@ -81,30 +73,28 @@ class ShopFragment : Fragment() {
          //  val slideModel21 = SlideModel(R.drawable.slider5, ScaleTypes.FIT)
            //getBannerlist()*/
 
-
-        getBannerlist(id.toString())
+        getBannerlist(session.getUserId().toString())
         return binding.root
-
 
     }
 
     private fun getBannerlist(userId: String?) {
         val map: MutableMap<String, String?> = HashMap()
-        map["userId"] = userId.toString()
+        map["userId"] = userId
         RetrofitClient.getInstance().getBannerlist(
             map
-        )?.enqueue(object : Callback<BannerModel> {
+        ).enqueue(object : Callback<BannerModel> {
             override fun onResponse(
                 call: Call<BannerModel>,
                 response: Response<BannerModel>,
             ) {
                 if (response.code() == 200) {
                     if (response.body() != null) {
-                        if (response.body()!!.result.equals(true)) {
-                            Log.e("TAG", "onResponse: gfdhgdf")
+                        if (response.body()!!.result) {
+                            Log.e("TAG", "onResponse: response")
+
                             var data = response.body()!!.data
-                            data[0].imageUrl
-                            data[0].validFrom
+
 
 
                         } else {
@@ -114,7 +104,7 @@ class ShopFragment : Fragment() {
                             ).show()
                         }
                     } else {
-                        Toast.makeText(context, "ytuyu", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "check data null", Toast.LENGTH_SHORT).show()
                     }
                 } else {
                     Toast.makeText(

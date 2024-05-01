@@ -43,7 +43,7 @@ class VerifyMobileActivity : AppCompatActivity() {
         map["phone"] = phone.toString()
         RetrofitClient.getInstance().verifyPhone(
             map
-        )?.enqueue(object : Callback<VerifyPhoneModel> {
+        ).enqueue(object : Callback<VerifyPhoneModel> {
             override fun onResponse(
                 call: Call<VerifyPhoneModel>,
                 response: Response<VerifyPhoneModel>,
@@ -57,6 +57,7 @@ class VerifyMobileActivity : AppCompatActivity() {
                                 Intent(
                                     this@VerifyMobileActivity, VerificationActivity::class.java
                                 ).putExtra("phone", binding.edtMobileNo.text.toString()
+
                                 )
 
                             )

@@ -1,4 +1,5 @@
 package com.example.onlinegroceries.activity
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -31,17 +32,16 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnContinueGoogle.setOnClickListener {
 
-            login(binding.edtEmail.text.toString(),binding.edtPassword.text.toString())
+            login(session.getUserEmail().toString(), binding.edtPassword.text.toString())
 
         }
 
     }
 
-    private fun login(email: String?, password: String?)
-    {
+    private fun login(email: String?, password: String?) {
         val map: MutableMap<String, String?> = HashMap()
-        map["email"] = email.toString()
-        map["password"] = password.toString()
+        map["email"] = email
+        map["password"] = password
 
         RetrofitClient.getInstance().userLogin(
             map
@@ -53,8 +53,10 @@ class LoginActivity : AppCompatActivity() {
                 if (response.code() == 200) {
                     if (response.body() != null) {
                         if (response.body()!!.result) {
+                            var data = response.body()!!.data
 
-                            Log.e("TAG", "onResponse: gfdhgf", )
+
+                            Log.e("TAG", "onResponse: gfdhgf")
 
                             startActivity(
                                 Intent(
@@ -62,6 +64,8 @@ class LoginActivity : AppCompatActivity() {
                                 )
 
                             )
+
+
                         }
 
                     } else
