@@ -27,20 +27,18 @@ class VerifyMobileActivity : AppCompatActivity() {
         session = Session(this)
 
         binding.btnNext.setOnClickListener {
-            if (binding.edtMobileNo.text.isEmpty()){
-                binding.edtMobileNo.error="enter Mobile no"
+            if (binding.edtMobileNo.text.isEmpty()) {
+                binding.edtMobileNo.error = "enter Mobile no"
                 binding.edtMobileNo.requestFocus()
-
-
-            }else{
-            verifyPhone(binding.edtMobileNo.text.toString())
-        }
+            } else {
+                verifyPhone(binding.edtMobileNo.text.toString())
+            }
         }
     }
 
     private fun verifyPhone(phone: String?) {
         val map: MutableMap<String, String?> = HashMap()
-        map["phone"] = phone.toString()
+        map["phone"] = phone
         RetrofitClient.getInstance().verifyPhone(
             map
         ).enqueue(object : Callback<VerifyPhoneModel> {
@@ -50,15 +48,13 @@ class VerifyMobileActivity : AppCompatActivity() {
             ) {
                 if (response.code() == 200) {
                     if (response.body() != null) {
-                        if (response.body()!!.result.equals(true))
-                           { Log.e("TAG", "onResponse: gfdhgdf", )
-                            Log.e("TAG", "onResponse: gfdhgdf", )
-                               startActivity(
+                        if (response.body()!!.result) {
+                            Log.e("TAG", "onResponse: gfdhgdf")
+                            Log.e("TAG", "onResponse: gfdhgdf")
+                            startActivity(
                                 Intent(
                                     this@VerifyMobileActivity, VerificationActivity::class.java
-                                ).putExtra("phone", binding.edtMobileNo.text.toString()
-
-                                )
+                                ).putExtra("phone", phone)
 
                             )
                         } else {
@@ -67,12 +63,14 @@ class VerifyMobileActivity : AppCompatActivity() {
                                 this@VerifyMobileActivity, response.body()!!.msg, Toast.LENGTH_SHORT
                             ).show()
                         }
-                    }else{
-                        Toast.makeText(this@VerifyMobileActivity,"ytuyu",Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this@VerifyMobileActivity, "ytuyu", Toast.LENGTH_SHORT)
+                            .show()
                     }
-                }else{
+                } else {
                     Toast.makeText(
-                        this@VerifyMobileActivity,"status check",Toast.LENGTH_SHORT).show()
+                        this@VerifyMobileActivity, "status check", Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
 

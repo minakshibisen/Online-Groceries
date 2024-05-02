@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnContinueGoogle.setOnClickListener {
 
-            login(session.getUserEmail().toString(), binding.edtPassword.text.toString())
+            login(binding.edtEmail.text.toString(), binding.edtPassword.text.toString())
 
         }
 
@@ -53,7 +53,8 @@ class LoginActivity : AppCompatActivity() {
                 if (response.code() == 200) {
                     if (response.body() != null) {
                         if (response.body()!!.result) {
-                            var data = response.body()!!.data
+                             response.body()!!.data
+                            session.getUserId()
 
 
                             Log.e("TAG", "onResponse: gfdhgf")

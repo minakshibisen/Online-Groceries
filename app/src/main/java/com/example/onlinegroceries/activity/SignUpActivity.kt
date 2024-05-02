@@ -2,10 +2,9 @@ package com.example.onlinegroceries.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.onlinegroceries.MainActivity
 import com.example.onlinegroceries.databinding.ActivitySignUpBinding
 import com.example.onlinegroceries.model.SignUpModel
@@ -29,7 +28,13 @@ class SignUpActivity : AppCompatActivity() {
 
         session = Session(this)
         val phone: String? = intent.getStringExtra("phone")
-
+        binding.textLogin.setOnClickListener {
+            startActivity(
+                Intent(
+                    this@SignUpActivity, LoginActivity::class.java
+                )
+            )
+        }
 
         binding.textSignup.setOnClickListener {
 
@@ -47,15 +52,18 @@ class SignUpActivity : AppCompatActivity() {
             } else signup(
                 phone,
                 binding.edtEmail.text.toString(),
+                binding.edtUserName.text.toString(),
                 binding.edtPassword.text.toString()
             )
         }
 
+
     }
 
-    private fun signup(phone: String?, email: String?, password: String?) {
+    private fun signup(phone: String?, username: String?, email: String?, password: String?) {
         val map: MutableMap<String, String?> = HashMap()
         map["phone"] = phone
+        map["username"] = username
         map["email"] = email
         map["password"] = password
         RetrofitClient.getInstance().userSignUp(
@@ -69,22 +77,22 @@ class SignUpActivity : AppCompatActivity() {
                 if (response.code() == 200) {
                     if (response.body() != null) {
                         if (response.body()!!.result) {
-                           response.body()!!.data
+                            response.body()!!.data
+                            session.getUserId()
+                            session.getUserEmail()
 
-                              startActivity(
+                            startActivity(
                                 Intent(
                                     this@SignUpActivity, MainActivity::class.java
                                 )
-
                             )
 
-
-                        } else binding.textLogin.setOnClickListener {
-                            startActivity(
-                                Intent(
-                                    this@SignUpActivity, LoginActivity::class.java
-                                )
-                            )
+                        } else {
+                            Toast.makeText(
+                                this@SignUpActivity,
+                                response.body()!!.msg,
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
 
 
