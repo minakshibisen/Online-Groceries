@@ -8,8 +8,7 @@ data class DashboardDataModel(
     data class Data(
         val cat_id: String,
         val count: Int,
-        val productList: List<Product>,
-        val title: String
+        val productList: List<Product>
     ) {
         data class Product(
             val _id: String,
@@ -19,4 +18,6 @@ data class DashboardDataModel(
             val quantity: String
         )
     }
+
+
 }

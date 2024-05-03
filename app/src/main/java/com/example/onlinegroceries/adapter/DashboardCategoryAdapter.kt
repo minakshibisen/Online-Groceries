@@ -7,12 +7,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.onlinegroceries.activity.ProductDetailActivity
 import com.example.onlinegroceries.databinding.BestSellingItemLayoutBinding
+import com.example.onlinegroceries.model.DashboardDataModel
+import com.example.onlinegroceries.model.DashboardDataModel.Data
 
-class DashboardCategoryAdapter( /*data: List<ProductTypeListResponse.Response>*/context: Context?) :
+class DashboardCategoryAdapter(var data: ArrayList<Data>, context: Context) :
     RecyclerView.Adapter<DashboardCategoryAdapter.ViewHolder>() {
-    var context: Context?
+    var context: Context
     init {
-
         this.context = context
 
     }
@@ -27,11 +28,11 @@ class DashboardCategoryAdapter( /*data: List<ProductTypeListResponse.Response>*/
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.itemLayout.setOnClickListener {
-            context?.startActivity(Intent(context, ProductDetailActivity::class.java))
-        }
-    }
+    val current = data[position]
+        holder.binding.textFruitName.text=current.cat_id
+        holder.binding.textFruitCount.text=current.cat_id
 
+    }
     override fun getItemCount(): Int {
         return 3
     }

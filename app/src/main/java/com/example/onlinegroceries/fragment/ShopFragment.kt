@@ -8,12 +8,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.onlinegroceries.adapter.BestShellingProductAdapter
-import com.example.onlinegroceries.adapter.ExclusiveItemAdapter
-import com.example.onlinegroceries.adapter.ExclusiveProductAdapter
-import com.example.onlinegroceries.adapter.ProductItemAdapter
+import com.example.onlinegroceries.adapter.DashboardCategoryAdapter
 import com.example.onlinegroceries.databinding.FragmentShopBinding
 import com.example.onlinegroceries.model.BannerModel
+import com.example.onlinegroceries.model.DashboardDataModel
 import com.example.onlinegroceries.remote.RetrofitClient
 import com.example.onlinegroceries.util.Session
 import retrofit2.Call
@@ -26,7 +24,7 @@ class ShopFragment : Fragment() {
     private lateinit var binding: FragmentShopBinding
 
     private lateinit var session: Session
-
+    private val data = ArrayList<DashboardDataModel.Data>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,32 +32,19 @@ class ShopFragment : Fragment() {
         binding = FragmentShopBinding.inflate(inflater, container, false)
         session = Session(context)
 
-        binding.recyExclusive.adapter = ExclusiveProductAdapter(context)
+        binding.recyExclusive.adapter = context?.let { DashboardCategoryAdapter(data, it) }
         binding.recyExclusive.layoutManager = LinearLayoutManager(
             context,
             LinearLayoutManager.HORIZONTAL,
             false
         )
 
-        binding.recyBestSelling.adapter = BestShellingProductAdapter(context)
-        binding.recyBestSelling.layoutManager = LinearLayoutManager(
-            context,
-            LinearLayoutManager.HORIZONTAL,
-            false
-        )
-        binding.recyProduct.adapter = ProductItemAdapter(context)
-        binding.recyProduct.layoutManager = LinearLayoutManager(
-            context,
-            LinearLayoutManager.HORIZONTAL,
-            false
-        )
+        val product1 = ArrayList<DashboardDataModel.Data.Product>()
+        product1.add(DashboardDataModel.Data.Product("fgf", "fgf", "banana", "200", "7"))
 
-        binding.recyGroceries.adapter = ExclusiveItemAdapter(context)
-        binding.recyGroceries.layoutManager = LinearLayoutManager(
-            context,
-            LinearLayoutManager.HORIZONTAL,
-            false
-        )
+        data.add(DashboardDataModel.Data("esd", 1, product1))
+
+
         /*  val slideModel = SlideModel(R.drawable.banner, ScaleTypes.FIT)
            slideModelArrayList1.add(SlideModel(R.drawable.banner, ScaleTypes.FIT))
            val slideModel2 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
@@ -73,10 +58,13 @@ class ShopFragment : Fragment() {
          //  val slideModel21 = SlideModel(R.drawable.slider5, ScaleTypes.FIT)
            //getBannerlist()*/
 
+
+
         getBannerlist(session.getUserId().toString())
         return binding.root
 
     }
+
 
     private fun getBannerlist(userId: String?) {
         val map: MutableMap<String, String?> = HashMap()
@@ -94,7 +82,6 @@ class ShopFragment : Fragment() {
                             Log.e("TAG", "onResponse: response")
 
                             var data = response.body()!!.data
-
 
 
                         } else {
