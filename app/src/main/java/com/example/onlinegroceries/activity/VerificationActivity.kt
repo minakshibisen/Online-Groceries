@@ -19,8 +19,6 @@ class VerificationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityVerificationBinding
     private lateinit var otp: String
 
-    private lateinit var phone: String
-
     private lateinit var session: Session
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,17 +27,17 @@ class VerificationActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         session = Session(this)
-        otp=""
+
+        otp = ""
+
         val phone: String? = intent.getStringExtra("phone")
 
         binding.btnOtpVerify.setOnClickListener {
-            verifyOtp(phone,otp)
+            verifyOtp(phone, binding.llPinLay.toString())
         }
+
         setKeys()
-
     }
-
-
     private fun verifyOtp(phone: String?,otp:String?) {
         val map: MutableMap<String, String?> = HashMap()
         map["phone"] = phone
@@ -63,7 +61,7 @@ class VerificationActivity : AppCompatActivity() {
                                     Intent(
                                         this@VerificationActivity,
                                         SignUpActivity::class.java
-                                    ).putExtra("phone","phone")
+                                    ).putExtra("phone", "phone")
 
                                 )
                             } else

@@ -27,8 +27,8 @@ class VerifyMobileActivity : AppCompatActivity() {
         session = Session(this)
 
         binding.btnNext.setOnClickListener {
-            if (binding.edtMobileNo.text.isEmpty()) {
-                binding.edtMobileNo.error = "enter Mobile no"
+            if (binding.edtMobileNo.text.isNullOrEmpty()) {
+                binding.edtMobileNo.error = "Enter Mobile no"
                 binding.edtMobileNo.requestFocus()
             } else {
                 verifyPhone(binding.edtMobileNo.text.toString())
@@ -49,16 +49,13 @@ class VerifyMobileActivity : AppCompatActivity() {
                 if (response.code() == 200) {
                     if (response.body() != null) {
                         if (response.body()!!.result) {
-                            Log.e("TAG", "onResponse: gfdhgdf")
-                            Log.e("TAG", "onResponse: gfdhgdf")
                             startActivity(
                                 Intent(
-                                    this@VerifyMobileActivity, VerificationActivity::class.java
+                                    this@VerifyMobileActivity,
+                                    VerificationActivity::class.java
                                 ).putExtra("phone", phone)
-
                             )
                         } else {
-
                             Toast.makeText(
                                 this@VerifyMobileActivity, response.body()!!.msg, Toast.LENGTH_SHORT
                             ).show()
