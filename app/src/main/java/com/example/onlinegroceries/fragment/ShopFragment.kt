@@ -32,13 +32,6 @@ class ShopFragment : Fragment() {
         binding = FragmentShopBinding.inflate(inflater, container, false)
         session = Session(context)
 
-        binding.recyExclusive.adapter = context?.let { DashboardCategoryAdapter(data, it) }
-        binding.recyExclusive.layoutManager = LinearLayoutManager(
-            context,
-            LinearLayoutManager.HORIZONTAL,
-            false
-        )
-
         val product1 = ArrayList<DashboardDataModel.Data.Product>()
         product1.add(DashboardDataModel.Data.Product("fgf", "fgf", "banana", "200", "7"))
 
@@ -61,8 +54,49 @@ class ShopFragment : Fragment() {
 
 
         getBannerlist(session.getUserId().toString())
+
+        getDashboardList()
         return binding.root
 
+    }
+
+    private fun getDashboardList() {
+        val map:MutableMap<String,String?> = HashMap()
+        RetrofitClient.getInstance().getDashBoardlist(map).enqueue(object :Callback<DashboardDataModel>{
+            override fun onResponse(
+                call: Call<DashboardDataModel>,
+                response: Response<DashboardDataModel>
+            ) {
+                if (response.code()==200){
+
+                    if (response.body()!=null){
+
+                        if (response.body()!!.result){
+
+                            binding.recyExclusive.adapter = context?.let { DashboardCategoryAdapter(data, it) }
+                            binding.recyExclusive.layoutManager = LinearLayoutManager(
+                                context,
+                                LinearLayoutManager.VERTICAL,
+                                false
+                            )
+                        }else{
+
+                        }
+                    }else{
+
+                    }
+
+                }else{
+
+                }
+
+            }
+
+            override fun onFailure(call: Call<DashboardDataModel>, t: Throwable) {
+
+            }
+
+        })
     }
 
 

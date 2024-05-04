@@ -35,8 +35,8 @@ class VerificationActivity : AppCompatActivity() {
         binding.btnOtpVerify.setOnClickListener {
             verifyOtp(phone,otp)
         }
-
         setKeys()
+
     }
 
 
@@ -56,27 +56,29 @@ class VerificationActivity : AppCompatActivity() {
                     if (response.code() == 200) {
                         if (response.body() != null) {
                             if (response.body()!!.result) {
-                                if (response.body()!!.msg.contentEquals("New User")) {
-                                    startActivity(
-                                        Intent(
-                                            this@VerificationActivity,
-                                            SignUpActivity::class.java
-                                        ).putExtra("phone", phone))
-                                } else {
-                                    startActivity(
-                                        Intent(
-                                            this@VerificationActivity,
-                                            LoginActivity::class.java
-                                        )
-                                    )
-                                }
-                            } else {
-                                Toast.makeText(this@VerificationActivity,"ytuyu",Toast.LENGTH_SHORT).show()
-                            }
+                                Log.e("TAG", "onResponse: ewqqer")
+
+
+                                startActivity(
+                                    Intent(
+                                        this@VerificationActivity,
+                                        SignUpActivity::class.java
+                                    ).putExtra("phone","phone")
+
+                                )
+                            } else
+                                Toast.makeText(
+                                    this@VerificationActivity, response.body()!!.msg, Toast.LENGTH_SHORT
+                                ).show()
+
                         } else
                             Toast.makeText(this@VerificationActivity,"ytuyu",Toast.LENGTH_SHORT).show()
+
+
                     } else
                         Toast.makeText(this@VerificationActivity,"ytuyu",Toast.LENGTH_SHORT).show()
+
+
                 }
 
                 override fun onFailure(call: Call<VerifyOtp>, t: Throwable) {

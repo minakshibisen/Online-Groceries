@@ -1,18 +1,17 @@
 package com.example.onlinegroceries.adapter
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.onlinegroceries.activity.ProductDetailActivity
 import com.example.onlinegroceries.databinding.BestSellingItemLayoutBinding
-import com.example.onlinegroceries.model.DashboardDataModel
 import com.example.onlinegroceries.model.DashboardDataModel.Data
 
-class DashboardCategoryAdapter(var data: ArrayList<Data>, context: Context) :
+class DashboardCategoryAdapter(var data:List<Data>, context: Context) :
     RecyclerView.Adapter<DashboardCategoryAdapter.ViewHolder>() {
-    var context: Context
+    var context: Context?
+
     init {
         this.context = context
 
@@ -28,13 +27,23 @@ class DashboardCategoryAdapter(var data: ArrayList<Data>, context: Context) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-    val current = data[position]
-        holder.binding.textFruitName.text=current.cat_id
-        holder.binding.textFruitCount.text=current.cat_id
+        val current = data[position]
+        holder.binding.textFruitName.text = current.cat_id
+        holder.binding.textFruitCount.text = current.cat_id
+
+        holder.binding.recyclerView.adapter =
+            context?.let { ExclusiveProductAdapter(current.productList, it) }
+        holder.binding.recyclerView.layoutManager = LinearLayoutManager(
+            context,
+            LinearLayoutManager.HORIZONTAL,
+            false
+        )
 
     }
+
+
     override fun getItemCount(): Int {
-        return 3
+        return data.size
     }
 
     class ViewHolder(binding: BestSellingItemLayoutBinding) :
