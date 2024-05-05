@@ -33,7 +33,7 @@ class VerificationActivity : AppCompatActivity() {
         val phone: String? = intent.getStringExtra("phone")
 
         binding.btnOtpVerify.setOnClickListener {
-            verifyOtp(phone, binding.llPinLay.toString())
+            verifyOtp(phone, otp)
         }
 
         setKeys()
@@ -61,7 +61,7 @@ class VerificationActivity : AppCompatActivity() {
                                     Intent(
                                         this@VerificationActivity,
                                         SignUpActivity::class.java
-                                    ).putExtra("phone", "phone")
+                                    ).putExtra("phone",phone)
 
                                 )
                             } else

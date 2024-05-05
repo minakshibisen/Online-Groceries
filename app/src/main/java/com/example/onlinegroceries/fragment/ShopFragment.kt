@@ -53,7 +53,7 @@ class ShopFragment : Fragment() {
 
 
 
-        getBannerlist(session.getUserId().toString())
+        //getBannerlist(session.getUserId().toString())
 
         getDashboardList()
         return binding.root
@@ -62,6 +62,8 @@ class ShopFragment : Fragment() {
 
     private fun getDashboardList() {
         val map:MutableMap<String,String?> = HashMap()
+        map.put("userId", session.getUserId())
+
         RetrofitClient.getInstance().getDashBoardlist(map).enqueue(object :Callback<DashboardDataModel>{
             override fun onResponse(
                 call: Call<DashboardDataModel>,
@@ -72,6 +74,9 @@ class ShopFragment : Fragment() {
                     if (response.body()!=null){
 
                         if (response.body()!!.result){
+
+
+
 
                             binding.recyExclusive.adapter = context?.let { DashboardCategoryAdapter(data, it) }
                             binding.recyExclusive.layoutManager = LinearLayoutManager(

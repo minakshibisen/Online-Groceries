@@ -53,8 +53,8 @@ class LoginActivity : AppCompatActivity() {
                 if (response.code() == 200) {
                     if (response.body() != null) {
                         if (response.body()!!.result) {
-                             response.body()!!.data
-                            session.getUserId()
+                             val data = response.body()!!.data
+                            session.setUserId(data._id)
 
 
                             Log.e("TAG", "onResponse: gfdhgf")

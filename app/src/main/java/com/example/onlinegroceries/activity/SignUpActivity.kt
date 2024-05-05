@@ -77,9 +77,9 @@ class SignUpActivity : AppCompatActivity() {
                 if (response.code() == 200) {
                     if (response.body() != null) {
                         if (response.body()!!.result) {
-                            response.body()!!.data
-                            session.getUserId()
-                            session.getUserEmail()
+                            val data = response.body()!!.data
+                            session.setUserId(data._id)
+                            session.setUserEmail(data.email)
 
                             startActivity(
                                 Intent(

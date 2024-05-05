@@ -73,6 +73,15 @@ class Session(context: Context?) {
         }
     }
 
+    fun setUserEmail(
+        email: String,
+    ) {
+        sharedPreferences.edit().apply {
+            putString(KEY_USER_EMAIL, email)
+            apply()
+        }
+    }
+
     fun setLogin(isLoggedIn: Boolean) {
         sharedPreferences.edit().apply {
             putBoolean(KEY_LOGGED_IN, isLoggedIn)
