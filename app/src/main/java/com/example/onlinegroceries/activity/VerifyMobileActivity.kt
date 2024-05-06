@@ -3,8 +3,10 @@ package com.example.onlinegroceries.activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.onlinegroceries.R
 import com.example.onlinegroceries.databinding.ActivityVerifyMobileBinding
 import com.example.onlinegroceries.model.VerifyPhoneModel
 import com.example.onlinegroceries.remote.RetrofitClient
@@ -34,6 +36,8 @@ class VerifyMobileActivity : AppCompatActivity() {
                 verifyPhone(binding.edtMobileNo.text.toString())
             }
         }
+        setKeys()
+
     }
 
     private fun verifyPhone(phone: String?) {
@@ -51,8 +55,7 @@ class VerifyMobileActivity : AppCompatActivity() {
                         if (response.body()!!.result) {
                             startActivity(
                                 Intent(
-                                    this@VerifyMobileActivity,
-                                    VerificationActivity::class.java
+                                    this@VerifyMobileActivity, VerificationActivity::class.java
                                 ).putExtra("phone", phone)
                             )
                         } else {
@@ -81,6 +84,31 @@ class VerifyMobileActivity : AppCompatActivity() {
                 )
             }
         })
+    }
+
+    private fun setKeys() {
+        val keys = arrayListOf("1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
+        val keyArray = arrayListOf(
+            binding.textOne,
+            binding.textTwo,
+            binding.textThree,
+            binding.textFour,
+            binding.textFive,
+            binding.textSix,
+            binding.textSeven,
+            binding.textEight,
+            binding.textNine,
+            binding.textZero,
+        )
+
+        keyArray.forEachIndexed { i, textView ->
+            textView.text = keys[i]
+
+        }
+
+        binding.imageClear.setOnClickListener {
+
+        }
     }
 
 }

@@ -29,20 +29,44 @@
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/login_animi"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/_170sdp"
+        android:layout_height="@dimen/_150sdp"
         android:layout_below="@id/header"
         android:layout_centerHorizontal="true"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/login" />
 
+    <TextView
+        android:id="@+id/verification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_animi"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/gilroy_bold"
+        android:text="Verification"
+        android:textSize="@dimen/_16sdp" />
+
+    <TextView
+        android:id="@+id/text_describe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/verification"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:fontFamily="@font/gilroy_regular"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/_25sdp"
+        android:text="We will send you OTP (One Time Password) on the below mentioned mobile number."
+        android:textSize="@dimen/_12sdp" />
+
     <RelativeLayout
         android:id="@+id/layout_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/login_animi"
+        android:layout_below="@id/text_describe"
         android:layout_marginHorizontal="@dimen/_18sdp"
-        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_15sdp"
         android:background="@drawable/round_border_bg"
         android:padding="@dimen/_10sdp">
 
@@ -69,14 +93,13 @@
 
         <EditText
             android:id="@+id/edt_mobile_no"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_toRightOf="@id/text_country_id"
             android:background="@null"
             android:drawablePadding="@dimen/_15sdp"
-            android:hint="@string/_9876543210"
             android:inputType="number"
             android:textColorHint="@color/light_gray"
             android:textSize="@dimen/_15sdp" />
@@ -84,10 +107,10 @@
     </RelativeLayout>
 
     <ImageView
-        android:layout_below="@id/layout_phone"
         android:id="@+id/btn_next"
         android:layout_width="@dimen/_40sdp"
         android:layout_height="@dimen/_40sdp"
+        android:layout_below="@id/layout_phone"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:layout_marginTop="@dimen/_20sdp"

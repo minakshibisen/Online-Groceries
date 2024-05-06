@@ -8,12 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.onlinegroceries.databinding.BestSellingItemLayoutBinding
 import com.example.onlinegroceries.model.DashboardDataModel.Data
 
-class DashboardCategoryAdapter(var data:List<Data>, context: Context) :
+class DashboardCategoryAdapter(var data:List<Data>, context: Context?) :
     RecyclerView.Adapter<DashboardCategoryAdapter.ViewHolder>() {
-    var context: Context?
+    lateinit var context: Context
 
     init {
-        this.context = context
+        if (context != null) {
+            this.context = context
+        }
 
     }
 
@@ -28,11 +30,11 @@ class DashboardCategoryAdapter(var data:List<Data>, context: Context) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val current = data[position]
-        holder.binding.textFruitName.text = current.cat_id
-        holder.binding.textFruitCount.text = current.cat_id
+        holder.binding.textExclusiveOffer.text = current.cat_id
+        holder.binding.textViewAll.text = current.cat_id
 
         holder.binding.recyclerView.adapter =
-            context?.let { ExclusiveProductAdapter(current.productList, it) }
+            ExclusiveProductAdapter(current.productList, context)
         holder.binding.recyclerView.layoutManager = LinearLayoutManager(
             context,
             LinearLayoutManager.HORIZONTAL,

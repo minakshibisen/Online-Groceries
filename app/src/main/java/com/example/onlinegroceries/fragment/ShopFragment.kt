@@ -24,7 +24,7 @@ class ShopFragment : Fragment() {
     private lateinit var binding: FragmentShopBinding
 
     private lateinit var session: Session
-    private val data = ArrayList<DashboardDataModel.Data>()
+   // private val data = ArrayList<DashboardDataModel.Data>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,10 +32,10 @@ class ShopFragment : Fragment() {
         binding = FragmentShopBinding.inflate(inflater, container, false)
         session = Session(context)
 
-        val product1 = ArrayList<DashboardDataModel.Data.Product>()
+      /*  val product1 = ArrayList<DashboardDataModel.Data.Product>()
         product1.add(DashboardDataModel.Data.Product("fgf", "fgf", "banana", "200", "7"))
 
-        data.add(DashboardDataModel.Data("esd", 1, product1))
+        data.add(DashboardDataModel.Data("esd", 1, product1))*/
 
 
         /*  val slideModel = SlideModel(R.drawable.banner, ScaleTypes.FIT)
@@ -53,7 +53,7 @@ class ShopFragment : Fragment() {
 
 
 
-        //getBannerlist(session.getUserId().toString())
+        getBannerlist()
 
         getDashboardList()
         return binding.root
@@ -62,7 +62,7 @@ class ShopFragment : Fragment() {
 
     private fun getDashboardList() {
         val map:MutableMap<String,String?> = HashMap()
-        map.put("userId", session.getUserId())
+        map["userId"] = session.getUserId()
 
         RetrofitClient.getInstance().getDashBoardlist(map).enqueue(object :Callback<DashboardDataModel>{
             override fun onResponse(
@@ -74,11 +74,10 @@ class ShopFragment : Fragment() {
                     if (response.body()!=null){
 
                         if (response.body()!!.result){
-
-
-
-
-                            binding.recyExclusive.adapter = context?.let { DashboardCategoryAdapter(data, it) }
+                           val data = ArrayList<DashboardDataModel.Data>()
+                            binding.recyExclusive.adapter = DashboardCategoryAdapter(
+                              data,context
+                            )
                             binding.recyExclusive.layoutManager = LinearLayoutManager(
                                 context,
                                 LinearLayoutManager.VERTICAL,
@@ -105,9 +104,9 @@ class ShopFragment : Fragment() {
     }
 
 
-    private fun getBannerlist(userId: String?) {
+    private fun getBannerlist() {
         val map: MutableMap<String, String?> = HashMap()
-        map["userId"] = userId
+        map["userId"] = session.getUserId()
         RetrofitClient.getInstance().getBannerlist(
             map
         ).enqueue(object : Callback<BannerModel> {

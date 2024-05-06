@@ -36,19 +36,29 @@
         app:lottie_rawRes="@raw/verify_otp"/>
 
     <TextView
-        android:id="@+id/sub_text"
+        android:id="@+id/verification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/gilroy_regular"
+        android:text="Verification"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/verify_text"
+        android:textSize="@dimen/_16sdp" />
+
+    <TextView
+        android:id="@+id/verify_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/ll_pin_lay"
-        android:layout_centerVertical="true"
         android:layout_gravity="center"
-        android:layout_marginBottom="@dimen/_20sdp"
-        android:fontFamily="@font/gilroy_medium"
+        android:fontFamily="@font/gilroy_regular"
         android:gravity="center"
+        android:layout_above="@id/ll_pin_lay"
         android:padding="@dimen/_5sdp"
-        android:text="@string/enter_your_4_digit_code"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:text="You will get a OTP via SMS"
+        android:textSize="@dimen/_12sdp" />
 
     <LinearLayout
         android:id="@+id/ll_pin_lay"
@@ -132,7 +142,7 @@
             android:fontFamily="@font/gilroy_bold"
             android:text="@string/resend_code"
             android:textColor="@color/color_primary"
-            android:textSize="18sp" />
+            android:textSize="12sp" />
 
         <ImageView
             android:id="@+id/btn_otp_verify"
@@ -140,7 +150,7 @@
             android:layout_height="@dimen/_40sdp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
             android:background="@drawable/background_circle"
             android:padding="@dimen/_5sdp"
             android:src="@drawable/baseline_navigate_next_24" />
