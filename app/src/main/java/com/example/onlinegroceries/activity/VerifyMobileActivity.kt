@@ -36,7 +36,6 @@ class VerifyMobileActivity : AppCompatActivity() {
                 verifyPhone(binding.edtMobileNo.text.toString())
             }
         }
-        setKeys()
 
     }
 
@@ -86,29 +85,6 @@ class VerifyMobileActivity : AppCompatActivity() {
         })
     }
 
-    private fun setKeys() {
-        val keys = arrayListOf("1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
-        val keyArray = arrayListOf(
-            binding.textOne,
-            binding.textTwo,
-            binding.textThree,
-            binding.textFour,
-            binding.textFive,
-            binding.textSix,
-            binding.textSeven,
-            binding.textEight,
-            binding.textNine,
-            binding.textZero,
-        )
 
-        keyArray.forEachIndexed { i, textView ->
-            textView.text = keys[i]
-
-        }
-
-        binding.imageClear.setOnClickListener {
-
-        }
-    }
 
 }

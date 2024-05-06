@@ -1,4 +1,5 @@
 package com.example.onlinegroceries.activity
+
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -18,6 +19,7 @@ import retrofit2.Response
 class VerificationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityVerificationBinding
     private lateinit var otp: String
+    private lateinit var msg: String
 
     private lateinit var session: Session
 
@@ -28,7 +30,6 @@ class VerificationActivity : AppCompatActivity() {
 
         session = Session(this)
 
-        otp = ""
 
         val phone: String? = intent.getStringExtra("phone")
 
@@ -38,10 +39,11 @@ class VerificationActivity : AppCompatActivity() {
 
         setKeys()
     }
-    private fun verifyOtp(phone: String?,otp:String?) {
+
+    private fun verifyOtp(phone: String?, otp: String?) {
         val map: MutableMap<String, String?> = HashMap()
         map["phone"] = phone
-        map["otp"]=otp
+        map["otp"] = otp
 
         RetrofitClient.getInstance()
             .verifyOtp(
@@ -56,25 +58,39 @@ class VerificationActivity : AppCompatActivity() {
                             if (response.body()!!.result) {
                                 Log.e("TAG", "onResponse: ewqqer")
 
-
+                                Toast.makeText(
+                                    this@VerificationActivity,
+                                    "OTP",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                                 startActivity(
                                     Intent(
                                         this@VerificationActivity,
                                         SignUpActivity::class.java
-                                    ).putExtra("phone",phone)
+                                    ).putExtra("phone", phone)
 
                                 )
-                            } else
-                                Toast.makeText(
-                                    this@VerificationActivity, response.body()!!.msg, Toast.LENGTH_SHORT
-                                ).show()
+
+
+                            } else {
+                                startActivity(
+                                    Intent(
+                                        this@VerificationActivity,
+                                        SignUpActivity::class.java
+                                    ).putExtra("phone", phone)
+
+                                )
+                            }
+
 
                         } else
-                            Toast.makeText(this@VerificationActivity,"ytuyu",Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@VerificationActivity, "ytuyu", Toast.LENGTH_SHORT)
+                                .show()
 
 
                     } else
-                        Toast.makeText(this@VerificationActivity,"ytuyu",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@VerificationActivity, "ytuyu", Toast.LENGTH_SHORT)
+                            .show()
 
 
                 }
@@ -91,6 +107,7 @@ class VerificationActivity : AppCompatActivity() {
             })
 
     }
+
     private fun setKeys() {
         val keys = arrayListOf("1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
         val keyArray = arrayListOf(
@@ -124,6 +141,7 @@ class VerificationActivity : AppCompatActivity() {
             moveToNext()
         }
     }
+
     private fun moveToNext() {
         resetBackground()
         when (otp.length) {

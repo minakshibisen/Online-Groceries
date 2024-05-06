@@ -54,7 +54,7 @@
         android:layout_below="@id/verification"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_2sdp"
-        android:fontFamily="@font/gilroy_regular"
+        android:fontFamily="@font/gilroy_medium"
         android:gravity="center"
         android:paddingHorizontal="@dimen/_25sdp"
         android:text="We will send you OTP (One Time Password) on the below mentioned mobile number."

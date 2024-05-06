@@ -3,6 +3,7 @@ package com.example.onlinegroceries.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.onlinegroceries.databinding.ExclusiveItemLayoutBinding
 import com.example.onlinegroceries.model.DashboardDataModel
@@ -30,9 +31,11 @@ class ExclusiveProductAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val current = product[position]
 
+
         holder.binding.textFruitCount.text = current.quantity
         holder.binding.textFruitName.text = current.name
         holder.binding.textPrice.text = current.price
+
 
 
     }

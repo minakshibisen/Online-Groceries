@@ -32,10 +32,7 @@ class ShopFragment : Fragment() {
         binding = FragmentShopBinding.inflate(inflater, container, false)
         session = Session(context)
 
-      /*  val product1 = ArrayList<DashboardDataModel.Data.Product>()
-        product1.add(DashboardDataModel.Data.Product("fgf", "fgf", "banana", "200", "7"))
 
-        data.add(DashboardDataModel.Data("esd", 1, product1))*/
 
 
         /*  val slideModel = SlideModel(R.drawable.banner, ScaleTypes.FIT)
@@ -74,7 +71,8 @@ class ShopFragment : Fragment() {
                     if (response.body()!=null){
 
                         if (response.body()!!.result){
-                           val data = ArrayList<DashboardDataModel.Data>()
+                            val data = response.body()!!.data
+
                             binding.recyExclusive.adapter = DashboardCategoryAdapter(
                               data,context
                             )
@@ -104,7 +102,8 @@ class ShopFragment : Fragment() {
     }
 
 
-    private fun getBannerlist() {
+    private fun getBannerlist()
+    {
         val map: MutableMap<String, String?> = HashMap()
         map["userId"] = session.getUserId()
         RetrofitClient.getInstance().getBannerlist(
@@ -120,6 +119,8 @@ class ShopFragment : Fragment() {
                             Log.e("TAG", "onResponse: response")
 
                             var data = response.body()!!.data
+
+
 
 
                         } else {
