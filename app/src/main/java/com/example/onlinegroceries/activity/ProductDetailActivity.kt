@@ -18,11 +18,8 @@ class ProductDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
         val slideModel = SlideModel(R.drawable.detail_fruit, ScaleTypes.FIT)
         slideModelArrayList1.add(SlideModel(R.drawable.detail_fruit, ScaleTypes.FIT))
-        val slideModel2 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
-        val slideModel3 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
         slideModelArrayList1.add(slideModel)
-        slideModelArrayList1.add(slideModel2)
-        slideModelArrayList1.add(slideModel3)
+
         binding.imageSlider1.setImageList(slideModelArrayList1, ScaleTypes.FIT)
 
         //val slideModel1 = SlideModel(R.drawable.banner, ScaleTypes.FIT)

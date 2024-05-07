@@ -22,7 +22,6 @@ class VerificationActivity : AppCompatActivity() {
     private lateinit var msg: String
 
     private lateinit var session: Session
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityVerificationBinding.inflate(layoutInflater)
