@@ -52,11 +52,14 @@
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_explore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/recycler_explore"
-            android:layout_margin="@dimen/_10sdp"
-            android:layout_below="@+id/rell_search"/>
+            android:layout_below="@+id/rell_search"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp" />
 
 
     </RelativeLayout>
