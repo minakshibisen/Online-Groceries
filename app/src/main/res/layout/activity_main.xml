@@ -6,53 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <RelativeLayout
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@id/bottomBar" />
+
+    <nl.joery.animatedbottombar.AnimatedBottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_alignParentBottom="true"
         android:background="@color/white"
-        tools:context=".ui.activity.DashboardActivity">
+        app:abb_iconSize="@dimen/_15sdp"
+        app:abb_indicatorAppearance="round"
+        app:abb_indicatorColor="@color/light_gray"
+        app:abb_indicatorLocation="bottom"
+        app:abb_indicatorMargin="@dimen/_15sdp"
+        app:abb_rippleColor="@color/black"
+        app:abb_rippleEnabled="true"
+        app:abb_selectedIndex="0"
+        app:abb_selectedTabType="icon"
+        app:abb_tabColor="@color/black"
+        app:abb_tabColorSelected="@color/color_primary"
+        app:abb_tabs="@menu/menu_bottom"
+        app:abb_textSize="@dimen/_9sdp" />
 
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@id/bottomBar">
-
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/container"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </androidx.core.widget.NestedScrollView>
-
-        <!--        <me.ibrahimsn.lib.SmoothBottomBar-->
-        <!--            android:id="@+id/bottomBar"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="@dimen/_52sdp"-->
-        <!--            android:layout_alignParentBottom="true"-->
-        <!--            app:backgroundColor="@color/color_primary"-->
-        <!--            app:menu="@menu/menu_bottom"-->
-        <!--            app:textSize="@dimen/_8sdp" />-->
-
-        <nl.joery.animatedbottombar.AnimatedBottomBar
-            android:id="@+id/bottomBar"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
-            android:layout_alignParentBottom="true"
-            android:background="@color/color_primary"
-            app:abb_indicatorAppearance="round"
-            app:abb_selectedIndex="0"
-            app:abb_rippleEnabled="true"
-            app:abb_rippleColor="@color/white"
-            app:abb_textSize="@dimen/_9sdp"
-            app:abb_iconSize="@dimen/_15sdp"
-            app:abb_tabColor="@color/white"
-            app:abb_tabColorSelected="@color/white"
-            app:abb_indicatorLocation="bottom"
-            app:abb_indicatorColor="@color/light_gray"
-            app:abb_indicatorMargin="@dimen/_15sdp"
-            app:abb_selectedTabType="icon"
-            app:abb_tabs="@menu/menu_bottom" />
-
-    </RelativeLayout>
 
 </RelativeLayout>

@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/transparent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".activity.TakeOrderActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_img"/>
-
+        android:background="@drawable/bg_img" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation_view"
         android:layout_width="@dimen/_180sdp"
         android:layout_height="@dimen/_150sdp"
         android:layout_gravity="center"
+        android:layout_marginTop="-60dp"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        android:layout_marginTop="-60dp"
         app:lottie_rawRes="@raw/success" />
 
     <TextView
@@ -47,7 +47,7 @@
         android:textSize="@dimen/_12sdp" />
 
     <TextView
-        android:id="@+id/btn_place_order"
+        android:id="@+id/text_btn_take_order"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -62,6 +62,7 @@
 
 
     <TextView
+        android:id="@+id/text_back_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

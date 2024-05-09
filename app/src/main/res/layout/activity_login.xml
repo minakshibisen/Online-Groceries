@@ -138,7 +138,7 @@
             android:textSize="@dimen/_12sdp" />
 
         <TextView
-            android:id="@+id/btn_continue_google"
+            android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -147,7 +147,7 @@
             android:background="@drawable/custom_bg_btn"
             android:gravity="center"
             android:padding="@dimen/_14sdp"
-            android:text="@string/sign_up"
+            android:text="Login"
             android:textColor="@color/white"
             android:textSize="@dimen/_14sdp" />
 

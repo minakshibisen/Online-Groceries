@@ -33,7 +33,12 @@ class VerifyMobileActivity : AppCompatActivity() {
                 binding.edtMobileNo.error = "Enter Mobile no"
                 binding.edtMobileNo.requestFocus()
             } else {
-                verifyPhone(binding.edtMobileNo.text.toString())
+                startActivity(
+                    Intent(
+                        this@VerifyMobileActivity, VerificationActivity::class.java
+                    )
+                )
+                //verifyPhone(binding.edtMobileNo.text.toString())
             }
         }
 

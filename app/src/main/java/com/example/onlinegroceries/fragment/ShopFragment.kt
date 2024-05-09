@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.models.SlideModel
+import com.example.onlinegroceries.R
 import com.example.onlinegroceries.adapter.DashboardCategoryAdapter
 import com.example.onlinegroceries.databinding.FragmentShopBinding
 import com.example.onlinegroceries.model.BannerModel
@@ -24,18 +27,22 @@ class ShopFragment : Fragment() {
     private lateinit var binding: FragmentShopBinding
 
     private lateinit var session: Session
-   // private val data = ArrayList<DashboardDataModel.Data>()
+  private val data = ArrayList<DashboardDataModel.Data>()
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentShopBinding.inflate(inflater, container, false)
         session = Session(context)
 
+       val product1 = ArrayList<DashboardDataModel.Data.Product>()
+       product1.add(DashboardDataModel.Data.Product("fgf", "fgf", "banana", "200", "7"))
+
+       data.add(DashboardDataModel.Data("esd", 1, product1))
 
 
 
-        /*  val slideModel = SlideModel(R.drawable.banner, ScaleTypes.FIT)
+   /*  val slideModel = SlideModel(R.drawable.banner, ScaleTypes.FIT)
            slideModelArrayList1.add(SlideModel(R.drawable.banner, ScaleTypes.FIT))
            val slideModel2 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
            val slideModel3 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
@@ -45,14 +52,19 @@ class ShopFragment : Fragment() {
            binding.imageSlider1.setImageList(slideModelArrayList1, ScaleTypes.FIT)
 
            //val slideModel1 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
-         //  val slideModel21 = SlideModel(R.drawable.slider5, ScaleTypes.FIT)
-           //getBannerlist()*/
+         //  val slideModel21 = SlideModel(R.drawable.slider5, ScaleTypes.FIT)*/
 
 
-
-        getBannerlist()
-
-        getDashboardList()
+      //  getBannerlist()
+        binding.recyExclusive.adapter = DashboardCategoryAdapter(
+            data,context
+        )
+        binding.recyExclusive.layoutManager = LinearLayoutManager(
+            context,
+            LinearLayoutManager.VERTICAL,
+            false
+        )
+        //getDashboardList()
         return binding.root
 
     }

@@ -49,12 +49,17 @@ class SignUpActivity : AppCompatActivity() {
             if (binding.edtPassword.text.isEmpty()) {
                 binding.edtPassword.error = "please enter Password"
                 binding.edtPassword.requestFocus()
-            } else signup(
+            } else   startActivity(
+                Intent(
+                    this@SignUpActivity, MainActivity::class.java
+                )
+            )
+               /* signup(
                 phone,
                 binding.edtEmail.text.toString(),
                 binding.edtUserName.text.toString(),
                 binding.edtPassword.text.toString()
-            )
+            )*/
         }
 
 

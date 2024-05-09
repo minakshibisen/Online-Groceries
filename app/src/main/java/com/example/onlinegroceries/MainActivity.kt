@@ -50,5 +50,8 @@ class MainActivity : AppCompatActivity() {
     private fun changeFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(binding.container.id, fragment).commit()
     }
+    fun selectFragment(i: Int) {
+        binding.bottomBar.selectTabAt(i, true)
+    }
 
 }

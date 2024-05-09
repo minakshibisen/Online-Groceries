@@ -87,6 +87,6 @@
         android:layout_height="@dimen/_1sdp"
         android:layout_marginHorizontal="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_8sdp"
-        android:background="@color/light_gray" />
+        android:background="@color/search_bg_color" />
 </LinearLayout>
 

@@ -30,9 +30,14 @@ class LoginActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        binding.btnContinueGoogle.setOnClickListener {
+        binding.btnLogin.setOnClickListener {
+            startActivity(
+                Intent(
+                    this@LoginActivity, MainActivity::class.java
+                )
 
-            login(binding.edtEmail.text.toString(), binding.edtPassword.text.toString())
+            )
+           // login(binding.edtEmail.text.toString(), binding.edtPassword.text.toString())
 
         }
 

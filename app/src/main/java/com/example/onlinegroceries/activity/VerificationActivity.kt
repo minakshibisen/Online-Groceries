@@ -3,7 +3,6 @@ package com.example.onlinegroceries.activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -20,7 +19,6 @@ import retrofit2.Response
 class VerificationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityVerificationBinding
     private lateinit var otp: String
-    private lateinit var msg: String
 
     private lateinit var session: Session
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,13 +32,20 @@ class VerificationActivity : AppCompatActivity() {
         val phone: String? = intent.getStringExtra("phone")
 
         binding.btnOtpVerify.setOnClickListener {
-            verifyOtp(phone, otp)
+            startActivity(
+                Intent(
+                    this@VerificationActivity,
+                    SignUpActivity::class.java
+                ).putExtra("phone", phone)
+
+            )
+           // verifyOtp(phone, otp)
         }
 
         setKeys()
     }
 
-    private fun verifyOtp(phone: String?, otp: String?) {
+  private fun verifyOtp(phone: String?, otp: String?) {
         val map: MutableMap<String, String?> = HashMap()
         map["phone"] = phone
         map["otp"] = otp

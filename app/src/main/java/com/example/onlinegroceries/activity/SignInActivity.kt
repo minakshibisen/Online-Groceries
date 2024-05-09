@@ -24,11 +24,15 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        session = Session(this)/* binding.textManualLogin.setOnClickListener {
+        session = Session(this)
 
+        startActivity(
+            Intent(
+                this@SignInActivity, VerifyMobileActivity::class.java
+            )
 
-         }*/
-        getLoginManual()
+        )
+       // getLoginManual()
     }
 
     private fun getLoginManual() {
