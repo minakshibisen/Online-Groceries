@@ -56,7 +56,7 @@
         android:layout_marginBottom="@dimen/_50sdp"
         android:background="@drawable/custom_bg_btn"
         android:gravity="center"
-        android:padding="@dimen/_10sdp"
+        android:padding="@dimen/_14sdp"
         android:text="Get Started"
         android:textColor="@color/white"
         android:textSize="@dimen/_12sdp" />

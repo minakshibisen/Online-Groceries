@@ -36,7 +36,7 @@ fun showSuccessDialog(view: View, context: Context?, timerCount: Int, cancelOnOu
         .show()
     alertDialog.setCanceledOnTouchOutside(cancelOnOutside)
     view.setOnClickListener { if (cancelOnOutside) alertDialog.dismiss() }
-    if (timerCount > 0) Handler().postDelayed(
+    if (timerCount > 0)Handler().postDelayed(
         { if (alertDialog.isShowing) alertDialog.dismiss() },
         timerCount.toLong()
     )

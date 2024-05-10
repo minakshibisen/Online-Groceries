@@ -18,8 +18,6 @@ import retrofit2.Response
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var session: Session
-    var phone = "7898865002"
-
     @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,14 +25,8 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         session = Session(this)
+
         val phone: String? = intent.getStringExtra("phone")
-        binding.textLogin.setOnClickListener {
-            startActivity(
-                Intent(
-                    this@SignUpActivity, LoginActivity::class.java
-                )
-            )
-        }
 
         binding.textSignup.setOnClickListener {
 
@@ -49,22 +41,22 @@ class SignUpActivity : AppCompatActivity() {
             if (binding.edtPassword.text.isEmpty()) {
                 binding.edtPassword.error = "please enter Password"
                 binding.edtPassword.requestFocus()
-            } else   startActivity(
-                Intent(
-                    this@SignUpActivity, MainActivity::class.java
-                )
-            )
-               /* signup(
+            } else signup(
                 phone,
                 binding.edtEmail.text.toString(),
                 binding.edtUserName.text.toString(),
                 binding.edtPassword.text.toString()
-            )*/
+            )
         }
 
-
+        binding.textLogin.setOnClickListener {
+            startActivity(
+                Intent(
+                    this@SignUpActivity, LoginActivity::class.java
+                )
+            )
+        }
     }
-
     private fun signup(phone: String?, username: String?, email: String?, password: String?) {
         val map: MutableMap<String, String?> = HashMap()
         map["phone"] = phone
@@ -94,9 +86,7 @@ class SignUpActivity : AppCompatActivity() {
 
                         } else {
                             Toast.makeText(
-                                this@SignUpActivity,
-                                response.body()!!.msg,
-                                Toast.LENGTH_SHORT
+                                this@SignUpActivity, response.body()!!.msg, Toast.LENGTH_SHORT
                             ).show()
                         }
 

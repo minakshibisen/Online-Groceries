@@ -27,16 +27,12 @@ class ExclusiveProductAdapter(
             )
         )
     }
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val current = product[position]
-
 
         holder.binding.textFruitCount.text = current.quantity
         holder.binding.textFruitName.text = current.name
         holder.binding.textPrice.text = current.price
-
-
 
     }
 

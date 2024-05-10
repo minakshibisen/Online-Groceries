@@ -19,7 +19,7 @@
             <View
                 android:id="@+id/view_fruit"
                 android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_70sdp"
+                android:layout_height="@dimen/_60sdp"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/_10sdp"
                 android:background="@drawable/fuel"
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/gilroy_bold"
                 android:text="@string/organic_banana"
-                android:textColor="@color/black"
+                android:textColor="@color/text_black"
                 android:textSize="@dimen/_12sdp" />
 
             <TextView
@@ -68,7 +68,7 @@
                 android:fontFamily="@font/gilroy_bold"
                 android:text="@string/_4_99"
                 android:layout_gravity="center"
-                android:textColor="@color/black"
+                android:textColor="@color/text_black"
                 android:textSize="@dimen/_12sdp" />
 
             <ImageView

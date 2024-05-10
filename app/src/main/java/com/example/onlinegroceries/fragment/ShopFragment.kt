@@ -8,9 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.denzcoskun.imageslider.constants.ScaleTypes
-import com.denzcoskun.imageslider.models.SlideModel
-import com.example.onlinegroceries.R
 import com.example.onlinegroceries.adapter.DashboardCategoryAdapter
 import com.example.onlinegroceries.databinding.FragmentShopBinding
 import com.example.onlinegroceries.model.BannerModel
@@ -21,101 +18,84 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
 class ShopFragment : Fragment() {
 
     private lateinit var binding: FragmentShopBinding
 
     private lateinit var session: Session
-  private val data = ArrayList<DashboardDataModel.Data>()
+    private val data = ArrayList<DashboardDataModel.Data>()
     override fun onCreateView(
-        inflater: LayoutInflater,container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentShopBinding.inflate(inflater, container, false)
         session = Session(context)
+        /*
+               val product1 = ArrayList<DashboardDataModel.Data.Product>()
+               product1.add(DashboardDataModel.Data.Product("fgf", "fgf", "banana", "200", "7"))
 
-       val product1 = ArrayList<DashboardDataModel.Data.Product>()
-       product1.add(DashboardDataModel.Data.Product("fgf", "fgf", "banana", "200", "7"))
+               data.add(DashboardDataModel.Data("esd", 1, product1))*/
 
-       data.add(DashboardDataModel.Data("esd", 1, product1))
+        /*  val slideModel = SlideModel(R.drawable.banner, ScaleTypes.FIT)
+                slideModelArrayList1.add(SlideModel(R.drawable.banner, ScaleTypes.FIT))
+                val slideModel2 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
+                val slideModel3 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
+                slideModelArrayList1.add(slideModel)
+                slideModelArrayList1.add(slideModel2)
+                slideModelArrayList1.add(slideModel3)
+                binding.imageSlider1.setImageList(slideModelArrayList1, ScaleTypes.FIT)
 
+                //val slideModel1 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
+              //  val slideModel21 = SlideModel(R.drawable.slider5, ScaleTypes.FIT)*/
 
+        //  getBannerlist()
 
-   /*  val slideModel = SlideModel(R.drawable.banner, ScaleTypes.FIT)
-           slideModelArrayList1.add(SlideModel(R.drawable.banner, ScaleTypes.FIT))
-           val slideModel2 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
-           val slideModel3 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
-           slideModelArrayList1.add(slideModel)
-           slideModelArrayList1.add(slideModel2)
-           slideModelArrayList1.add(slideModel3)
-           binding.imageSlider1.setImageList(slideModelArrayList1, ScaleTypes.FIT)
-
-           //val slideModel1 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
-         //  val slideModel21 = SlideModel(R.drawable.slider5, ScaleTypes.FIT)*/
-
-
-      //  getBannerlist()
-        binding.recyExclusive.adapter = DashboardCategoryAdapter(
-            data,context
-        )
-        binding.recyExclusive.layoutManager = LinearLayoutManager(
-            context,
-            LinearLayoutManager.VERTICAL,
-            false
-        )
-        //getDashboardList()
+        getDashboardList()
         return binding.root
-
     }
 
     private fun getDashboardList() {
-        val map:MutableMap<String,String?> = HashMap()
+        val map: MutableMap<String, String?> = HashMap()
         map["userId"] = session.getUserId()
 
-        RetrofitClient.getInstance().getDashBoardlist(map).enqueue(object :Callback<DashboardDataModel>{
-            override fun onResponse(
-                call: Call<DashboardDataModel>,
-                response: Response<DashboardDataModel>
-            ) {
-                if (response.code()==200){
+        RetrofitClient.getInstance().getDashBoardlist(map)
+            .enqueue(object : Callback<DashboardDataModel> {
+                override fun onResponse(
+                    call: Call<DashboardDataModel>, response: Response<DashboardDataModel>
+                ) {
+                    if (response.code() == 200) {
 
-                    if (response.body()!=null){
+                        if (response.body() != null) {
 
-                        if (response.body()!!.result){
-                            val data = response.body()!!.data
+                            if (response.body()!!.result) {
+                                val data = response.body()!!.data
 
-                            binding.recyExclusive.adapter = DashboardCategoryAdapter(
-                              data,context
-                            )
-                            binding.recyExclusive.layoutManager = LinearLayoutManager(
-                                context,
-                                LinearLayoutManager.VERTICAL,
-                                false
-                            )
-                        }else{
+                                binding.recyExclusive.adapter = DashboardCategoryAdapter(
+                                    data, context
+                                )
+                                binding.recyExclusive.layoutManager = LinearLayoutManager(
+                                    context, LinearLayoutManager.VERTICAL, false
+                                )
+                            } else {
+
+                            }
+                        } else {
 
                         }
-                    }else{
+
+                    } else {
 
                     }
 
-                }else{
+                }
+
+                override fun onFailure(call: Call<DashboardDataModel>, t: Throwable) {
 
                 }
 
-            }
-
-            override fun onFailure(call: Call<DashboardDataModel>, t: Throwable) {
-
-            }
-
-        })
+            })
     }
 
-
-    private fun getBannerlist()
-    {
+    private fun getBannerlist() {
         val map: MutableMap<String, String?> = HashMap()
         map["userId"] = session.getUserId()
         RetrofitClient.getInstance().getBannerlist(
@@ -130,10 +110,7 @@ class ShopFragment : Fragment() {
                         if (response.body()!!.result) {
                             Log.e("TAG", "onResponse: response")
 
-                            var data = response.body()!!.data
-
-
-
+                            // var data = response.body()!!.data
 
                         } else {
 

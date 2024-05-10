@@ -7,6 +7,7 @@ import android.os.Looper
 import com.example.onlinegroceries.MainActivity
 import com.example.onlinegroceries.R
 import com.example.onlinegroceries.databinding.ActivitySplashBinding
+import com.example.onlinegroceries.util.Session
 
 class SplashActivity : AppCompatActivity() {
 
@@ -16,12 +17,15 @@ class SplashActivity : AppCompatActivity() {
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
         window.statusBarColor = getColor(R.color.white)
+        val session = Session(this)
 
         Handler(Looper.getMainLooper()).postDelayed({
-
-            startActivity(Intent(this,MainActivity::class.java))
+            val intent: Intent = if (session.isLoggedIn())
+                Intent(this, OnboardingActivity::class.java)
+            else
+                Intent(this, MainActivity::class.java)
+            startActivity(intent)
             finish()
-        }, 3000)
-
+        },1000)
     }
 }

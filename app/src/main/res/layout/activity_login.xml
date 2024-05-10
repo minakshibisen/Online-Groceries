@@ -112,7 +112,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/bg_img_bottom"
         android:orientation="vertical">
 
@@ -120,11 +120,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_9sdp"
-            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:fontFamily="@font/gilroy_medium"
             android:text="@string/by_continuing_you_agree_to_our_terms_of_service_and"
             android:textFontWeight="400"
-            android:textSize="@dimen/_11sdp" />
+            android:textSize="@dimen/_10sdp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -135,14 +135,13 @@
             android:textColor="@color/color_primary"
             android:lineHeight="@dimen/_25sdp"
             android:textFontWeight="400"
-            android:textSize="@dimen/_12sdp" />
-
+            android:textSize="@dimen/_11sdp" />
         <TextView
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-           android:layout_marginHorizontal="@dimen/_14sdp"
+            android:layout_marginHorizontal="@dimen/_14sdp"
             android:layout_marginTop="@dimen/_20sdp"
             android:background="@drawable/custom_bg_btn"
             android:gravity="center"
@@ -163,4 +162,5 @@
             android:textSize="@dimen/_10sdp" />
 
     </LinearLayout>
+
 </LinearLayout>

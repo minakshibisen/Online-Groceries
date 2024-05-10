@@ -55,13 +55,20 @@
         android:textColor="@color/dark_gray"
         android:textSize="14sp" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/text_label"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/ll_btn_lay">
+
     <TextView
         android:id="@+id/text_continue_google"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/text_get_continue_facebook"
         android:layout_marginStart="@dimen/_14sdp"
-        android:layout_marginEnd="@dimen/_14sdp"
+            android:layout_marginEnd="@dimen/_14sdp"
         android:background="@drawable/custom_bg_btn_lightblue"
         android:gravity="center"
         android:fontFamily="@font/gilroy_bold"
@@ -74,11 +81,9 @@
         android:id="@+id/text_get_continue_facebook"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_marginStart="@dimen/_14sdp"
         android:layout_marginTop="@dimen/_14sdp"
         android:layout_marginEnd="@dimen/_14sdp"
-        android:layout_marginBottom="@dimen/_50sdp"
         android:background="@drawable/custom_bg_btn_darkblue"
         android:gravity="center"
         android:fontFamily="@font/gilroy_bold"
@@ -86,5 +91,7 @@
         android:text="@string/continue_with_facebook"
         android:textColor="@color/white"
         android:textSize="@dimen/_15sdp" />
+
+    </LinearLayout>
 
 </RelativeLayout>
