@@ -110,7 +110,8 @@ class ShopFragment : Fragment() {
                         if (response.body()!!.result) {
                             Log.e("TAG", "onResponse: response")
 
-                            // var data = response.body()!!.data
+                         var data = response.body()!!.data
+
 
                         } else {
 

@@ -70,21 +70,25 @@ class VerificationActivity : AppCompatActivity() {
                         if (response.body()!!.result) {
                             Log.e("TAG", "onResponse: ewqqer")
 
-                            Toast.makeText(
-                                this@VerificationActivity, "OTP", Toast.LENGTH_SHORT
-                            ).show()
-                            startActivity(
-                                Intent(
-                                    this@VerificationActivity, SignUpActivity::class.java
-                                ).putExtra("phone", phone)
-                            )
+                            if(response.body()!!.msg=="New User"){
+                                startActivity(
+                                    Intent(
+                                        this@VerificationActivity, SignUpActivity::class.java
+                                    ).putExtra("phone", phone)
+                                )
+
+                            }else{
+                                startActivity(
+                                    Intent(
+                                        this@VerificationActivity, LoginActivity::class.java
+                                    )
+                                )
+                            }
 
                         } else {
-                            startActivity(
-                                Intent(
-                                    this@VerificationActivity, SignUpActivity::class.java
-                                ).putExtra("phone", phone)
-                            )
+                           Toast.makeText(
+                                this@VerificationActivity, "response.body.result ", Toast.LENGTH_SHORT
+                            ).show()
                         }
 
                     } else Toast.makeText(
@@ -121,7 +125,9 @@ class VerificationActivity : AppCompatActivity() {
                 if (response.code() == 200) {
                     if (response.body() != null) {
                         if (response.body()!!.result) {
-
+                            Toast.makeText(
+                                this@VerificationActivity, response.body()!!.msg, Toast.LENGTH_SHORT
+                            ).show()
                         } else {
                             Toast.makeText(
                                 this@VerificationActivity, response.body()!!.msg, Toast.LENGTH_SHORT

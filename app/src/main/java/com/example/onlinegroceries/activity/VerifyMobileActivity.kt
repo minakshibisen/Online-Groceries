@@ -53,11 +53,16 @@ class VerifyMobileActivity : AppCompatActivity() {
                 if (response.code() == 200) {
                     if (response.body() != null) {
                         if (response.body()!!.result) {
+
+                            Toast.makeText(
+                                this@VerifyMobileActivity, response.body()!!.msg, Toast.LENGTH_SHORT
+                            ).show()
                             startActivity(
                                 Intent(
                                     this@VerifyMobileActivity, VerificationActivity::class.java
                                 ).putExtra("phone", phone)
                             )
+
                         } else {
                             Toast.makeText(
                                 this@VerifyMobileActivity, response.body()!!.msg, Toast.LENGTH_SHORT

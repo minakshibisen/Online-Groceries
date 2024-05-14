@@ -31,13 +31,13 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnLogin.setOnClickListener {
-            startActivity(
+           /* startActivity(
                 Intent(
                     this@LoginActivity, MainActivity::class.java
                 )
 
-            )
-           // login(binding.edtEmail.text.toString(), binding.edtPassword.text.toString())
+            )*/
+            login(binding.edtEmail.text.toString(), binding.edtPassword.text.toString())
 
         }
 
@@ -60,17 +60,13 @@ class LoginActivity : AppCompatActivity() {
                         if (response.body()!!.result) {
                              val data = response.body()!!.data
                             session.setUserId(data._id)
-
-
                             Log.e("TAG", "onResponse: gfdhgf")
 
                             startActivity(
                                 Intent(
                                     this@LoginActivity, MainActivity::class.java
                                 )
-
                             )
-
 
                         }
 

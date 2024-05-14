@@ -23,7 +23,7 @@
         app:abb_indicatorColor="@color/light_gray"
         app:abb_indicatorLocation="bottom"
         app:abb_indicatorMargin="@dimen/_15sdp"
-        app:abb_rippleColor="@color/black"
+        app:abb_rippleColor="@color/light_gray"
         app:abb_rippleEnabled="true"
         app:abb_selectedIndex="0"
         app:abb_selectedTabType="icon"
