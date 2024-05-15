@@ -44,7 +44,7 @@ class SignInActivity : AppCompatActivity() {
 
                     if (response.body() != null) {
 
-                        if (response.body()!!.result.equals(true)) {
+                        if (response.body()!!.result) {
                             var data = response.body()!!.data
 
                             if (binding.textContinueGoogle.text == "true") binding.textContinueGoogle.visibility =
@@ -78,7 +78,6 @@ class SignInActivity : AppCompatActivity() {
 
                         }
 
-
                     } else {
 
                     }
@@ -88,7 +87,6 @@ class SignInActivity : AppCompatActivity() {
 
 
                 }
-
 
             }
 

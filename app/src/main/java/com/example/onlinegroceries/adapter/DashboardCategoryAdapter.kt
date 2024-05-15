@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.onlinegroceries.R
 import com.example.onlinegroceries.databinding.BestSellingItemLayoutBinding
 import com.example.onlinegroceries.model.DashboardDataModel.Data
 
@@ -42,7 +43,6 @@ class DashboardCategoryAdapter(var data:List<Data>, context: Context?) :
         )
 
     }
-
 
     override fun getItemCount(): Int {
         return data.size

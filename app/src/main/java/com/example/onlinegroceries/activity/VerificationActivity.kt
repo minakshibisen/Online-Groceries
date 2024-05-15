@@ -39,7 +39,7 @@ class VerificationActivity : AppCompatActivity() {
         }
 
         binding.textResend.setOnClickListener {
-            resendOtp(phone)
+            //resendOtp(phone)
         }
 
         setKeys()
@@ -70,9 +70,7 @@ class VerificationActivity : AppCompatActivity() {
                         if (response.body()!!.result) {
                             Log.e("TAG", "onResponse: ewqqer")
 
-                            Toast.makeText(
-                                this@VerificationActivity, "OTP", Toast.LENGTH_SHORT
-                            ).show()
+
                             startActivity(
                                 Intent(
                                     this@VerificationActivity, SignUpActivity::class.java

@@ -1,10 +1,13 @@
 package com.example.onlinegroceries.adapter
 
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.onlinegroceries.R
 import com.example.onlinegroceries.databinding.ExclusiveItemLayoutBinding
 import com.example.onlinegroceries.model.DashboardDataModel
 
@@ -33,6 +36,10 @@ class ExclusiveProductAdapter(
         holder.binding.textFruitCount.text = current.quantity
         holder.binding.textFruitName.text = current.name
         holder.binding.textPrice.text = current.price
+        Glide.with(context)
+            .load(current.image)
+            .placeholder(R.drawable.loading)
+            .into(holder.binding.viewFruit)
 
     }
 

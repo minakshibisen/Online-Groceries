@@ -95,4 +95,7 @@
     <string name="notification">Notification</string>
     <string name="help">Help</string>
     <string name="about">About</string>
+    <string name="verification">Verification</string>
+    <string name="we_will_send_you_otp_one_time_password_on_the_below_mentioned_mobile_number">We will send you OTP (One Time Password) on the below mentioned mobile number.</string>
+    <string name="verify_mobile">Verify Mobile</string>
 </resources>

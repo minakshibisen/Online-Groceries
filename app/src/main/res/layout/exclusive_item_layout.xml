@@ -15,7 +15,7 @@
         android:paddingVertical="@dimen/_10sdp"
         android:paddingBottom="@dimen/_5sdp">
 
-        <View
+        <ImageView
             android:id="@+id/view_fruit"
             android:layout_width="@dimen/_75sdp"
             android:layout_height="@dimen/_60sdp"
