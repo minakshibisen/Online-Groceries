@@ -19,8 +19,6 @@ import retrofit2.Response
 class VerifyMobileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityVerifyMobileBinding
     private lateinit var session: Session
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityVerifyMobileBinding.inflate(layoutInflater)
@@ -33,13 +31,10 @@ class VerifyMobileActivity : AppCompatActivity() {
                 binding.edtMobileNo.error = "Enter Mobile no"
                 binding.edtMobileNo.requestFocus()
             } else {
-
                 verifyPhone(binding.edtMobileNo.text.toString())
             }
         }
-
     }
-
     private fun verifyPhone(phone: String?) {
         val map: MutableMap<String, String?> = HashMap()
         map["phone"] = phone
@@ -90,7 +85,4 @@ class VerifyMobileActivity : AppCompatActivity() {
             }
         })
     }
-
-
-
 }

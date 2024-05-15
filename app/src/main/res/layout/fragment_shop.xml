@@ -56,7 +56,7 @@
                 android:layout_marginStart="@dimen/_5sdp"
                 android:layout_toRightOf="@id/img_search"
                 android:fontFamily="@font/gilroy_bold"
-                android:text=" Search Store"
+                android:text="Search Store"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_10sdp" />
 
@@ -92,7 +92,6 @@
               android:background="@drawable/banner" />
   -->
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recy_exclusive"
             android:layout_width="wrap_content"
@@ -101,8 +100,6 @@
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginVertical="@dimen/_10sdp" />
 
-
     </RelativeLayout>
-
 
 </androidx.core.widget.NestedScrollView>

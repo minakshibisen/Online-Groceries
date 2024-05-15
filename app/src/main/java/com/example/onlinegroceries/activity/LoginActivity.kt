@@ -14,35 +14,26 @@ import com.example.onlinegroceries.util.popupDialog
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     lateinit var session: Session
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         session = Session(this)
 
-
         setContentView(binding.root)
-
         binding.btnLogin.setOnClickListener {
            /* startActivity(
                 Intent(
                     this@LoginActivity, MainActivity::class.java
                 )
-
             )*/
             login(binding.edtEmail.text.toString(), binding.edtPassword.text.toString())
-
         }
-
     }
-
     private fun login(email: String?, password: String?) {
         val map: MutableMap<String, String?> = HashMap()
         map["email"] = email
@@ -67,7 +58,6 @@ class LoginActivity : AppCompatActivity() {
                                     this@LoginActivity, MainActivity::class.java
                                 )
                             )
-
                         }
 
                     } else
@@ -90,7 +80,6 @@ class LoginActivity : AppCompatActivity() {
                 )
             }
         })
-
 
     }
 }

@@ -110,7 +110,9 @@ class ShopFragment : Fragment() {
                         if (response.body()!!.result) {
                             Log.e("TAG", "onResponse: response")
 
-                            var data:List<DashboardDataModel.Data>
+                            var data:List<BannerModel.Data>
+
+                        // session.setUserId()
 
 
                         } else {

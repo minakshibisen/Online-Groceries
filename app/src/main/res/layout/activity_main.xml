@@ -32,5 +32,4 @@
         app:abb_tabs="@menu/menu_bottom"
         app:abb_textSize="@dimen/_9sdp" />
 
-
 </RelativeLayout>
