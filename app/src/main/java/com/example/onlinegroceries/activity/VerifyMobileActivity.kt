@@ -3,7 +3,6 @@ package com.example.onlinegroceries.activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -20,7 +19,6 @@ import retrofit2.Response
 class VerifyMobileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityVerifyMobileBinding
     private lateinit var session: Session
-    private lateinit var code: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,10 +26,8 @@ class VerifyMobileActivity : AppCompatActivity() {
         binding = ActivityVerifyMobileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        code = ""
-
         session = Session(this)
-       // setKeys()
+
         binding.btnNext.setOnClickListener {
             if (binding.edtMobileNo.text.isNullOrEmpty()) {
                 binding.edtMobileNo.error = "Enter Mobile no"
@@ -58,15 +54,15 @@ class VerifyMobileActivity : AppCompatActivity() {
                     if (response.body() != null) {
                         if (response.body()!!.result) {
 
-
+                            Toast.makeText(
+                                this@VerifyMobileActivity, response.body()!!.msg, Toast.LENGTH_SHORT
+                            ).show()
                             startActivity(
                                 Intent(
                                     this@VerifyMobileActivity, VerificationActivity::class.java
                                 ).putExtra("phone", phone)
                             )
-                            Toast.makeText(
-                                this@VerifyMobileActivity, response.body()!!.msg, Toast.LENGTH_SHORT
-                            ).show()
+
                         } else {
                             Toast.makeText(
                                 this@VerifyMobileActivity, response.body()!!.msg, Toast.LENGTH_SHORT
@@ -94,31 +90,7 @@ class VerifyMobileActivity : AppCompatActivity() {
             }
         })
     }
-    private fun setKeys() {
-        val keys = arrayListOf("1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
-        val keyArray = arrayListOf(
-            binding.textOne,
-            binding.textTwo,
-            binding.textThree,
-            binding.textFour,
-            binding.textFive,
-            binding.textSix,
-            binding.textSeven,
-            binding.textEight,
-            binding.textNine,
-            binding.textZero,
-        )
-        keyArray.forEachIndexed { i, textView ->
-            textView.text = keys[i]
-            textView.setOnClickListener { keyPress(it as TextView) }
-        }
 
-    }
-    private fun keyPress(key: TextView) {
-        binding.edtMobileNo.visibility = View.GONE
-        if (code.length < 10) {
-            code += key.text.toString().toInt()
 
-        }
-    }
+
 }
