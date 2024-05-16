@@ -71,7 +71,7 @@
         android:layout_marginHorizontal="@dimen/_8sdp"
         android:background="@null"
         android:fontFamily="@font/gilroy_medium"
-        android:hint="Arshifa Jubin Nauityal"
+        android:hint=""
         android:inputType="text"
         android:paddingVertical="@dimen/_10sdp"
         android:textColorHint="@color/text_black"
@@ -102,7 +102,7 @@
         android:layout_marginHorizontal="@dimen/_8sdp"
         android:background="@null"
         android:fontFamily="@font/gilroy_medium"
-        android:hint="minakshi@gmail.com"
+        android:hint=""
         android:inputType="text|textEmailAddress"
         android:paddingVertical="@dimen/_10sdp"
         android:textColorHint="@color/text_black"
@@ -133,7 +133,7 @@
         android:layout_marginHorizontal="@dimen/_8sdp"
         android:background="@null"
         android:fontFamily="@font/gilroy_medium"
-        android:hint="********"
+        android:hint=""
         android:inputType="number"
         android:paddingVertical="@dimen/_10sdp"
         android:textColorHint="@color/text_black"
@@ -150,7 +150,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bg_img_bottom"
-        android:layout_marginHorizontal="@dimen/_10sdp"
         android:orientation="vertical">
 
         <TextView

@@ -75,7 +75,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="@dimen/_8sdp"
                     android:layout_marginBottom="@dimen/_8sdp"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_6sdp"
                     android:src="@drawable/ic_close"
                     app:tint="@color/text_label_black" />
 
@@ -134,7 +134,7 @@
                     android:fontFamily="@font/gilroy_bold"
                     android:text="@string/_4_99"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_10sdp" />
             </RelativeLayout>
 
 

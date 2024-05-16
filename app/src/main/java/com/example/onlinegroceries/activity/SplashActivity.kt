@@ -21,9 +21,9 @@ class SplashActivity : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             val intent: Intent = if (session.isLoggedIn())
-                Intent(this, MainActivity::class.java)
-            else
                 Intent(this, OnboardingActivity::class.java)
+            else
+                Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         },1000)

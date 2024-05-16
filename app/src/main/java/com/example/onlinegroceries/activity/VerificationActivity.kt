@@ -41,7 +41,6 @@ class VerificationActivity : AppCompatActivity() {
         binding.textResend.setOnClickListener {
             resendOtp(phone)
         }
-
         setKeys()
     }
 

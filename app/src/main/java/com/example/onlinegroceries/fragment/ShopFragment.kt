@@ -1,5 +1,6 @@
 package com.example.onlinegroceries.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.onlinegroceries.activity.SelectLocationActivity
 import com.example.onlinegroceries.adapter.DashboardCategoryAdapter
 import com.example.onlinegroceries.databinding.FragmentShopBinding
 import com.example.onlinegroceries.model.BannerModel
@@ -29,6 +31,9 @@ class ShopFragment : Fragment() {
     ): View {
         binding = FragmentShopBinding.inflate(inflater, container, false)
         session = Session(context)
+        binding.textLocation.setOnClickListener {
+            startActivity(Intent(context,SelectLocationActivity::class.java))
+        }
         /*
                val product1 = ArrayList<DashboardDataModel.Data.Product>()
                product1.add(DashboardDataModel.Data.Product("fgf", "fgf", "banana", "200", "7"))
@@ -109,11 +114,8 @@ class ShopFragment : Fragment() {
                     if (response.body() != null) {
                         if (response.body()!!.result) {
                             Log.e("TAG", "onResponse: response")
-
+                            val arr = arrayListOf<String>()
                             var data:List<BannerModel.Data>
-
-                        // session.setUserId()
-
 
                         } else {
 
