@@ -23,7 +23,7 @@ class SplashActivity : AppCompatActivity() {
             val intent: Intent = if (session.isLoggedIn())
                 Intent(this, OnboardingActivity::class.java)
             else
-                Intent(this, MainActivity::class.java)
+                Intent(this, OnboardingActivity::class.java)
             startActivity(intent)
             finish()
         },1000)

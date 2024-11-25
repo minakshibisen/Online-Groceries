@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+
         changeFragment(ShopFragment())
     }
 
@@ -53,5 +54,6 @@ class MainActivity : AppCompatActivity() {
     fun selectFragment(i: Int) {
         binding.bottomBar.selectTabAt(i, true)
     }
+
 
 }

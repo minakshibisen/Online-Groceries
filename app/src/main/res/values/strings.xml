@@ -98,4 +98,5 @@
     <string name="verification">Verification</string>
     <string name="we_will_send_you_otp_one_time_password_on_the_below_mentioned_mobile_number">We will send you OTP (One Time Password) on the below mentioned mobile number.</string>
     <string name="verify_mobile">Verify Mobile</string>
+    <string name="enter_your_emails_and_password">Enter your emails and password</string>
 </resources>

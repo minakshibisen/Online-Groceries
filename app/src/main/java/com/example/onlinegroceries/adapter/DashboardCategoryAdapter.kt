@@ -9,14 +9,12 @@ import com.example.onlinegroceries.R
 import com.example.onlinegroceries.databinding.BestSellingItemLayoutBinding
 import com.example.onlinegroceries.model.DashboardDataModel.Data
 
-class DashboardCategoryAdapter(var data:List<Data>, context: Context?) :
+class DashboardCategoryAdapter(var data:List<Data>, conanytext: Context?) :
     RecyclerView.Adapter<DashboardCategoryAdapter.ViewHolder>() {
     lateinit var context: Context
 
     init {
-        if (context != null) {
-            this.context = context
-        }
+        this.context = context
 
     }
 
@@ -48,12 +46,7 @@ class DashboardCategoryAdapter(var data:List<Data>, context: Context?) :
         return data.size
     }
 
-    class ViewHolder(binding: BestSellingItemLayoutBinding) :
+    class ViewHolder(var binding: BestSellingItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        var binding: BestSellingItemLayoutBinding
-
-        init {
-            this.binding = binding
-        }
     }
 }

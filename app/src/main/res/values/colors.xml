@@ -15,5 +15,11 @@
     <color name="pink">#F5D8FA</color>
     <color name="view_color">#E2E2E2B2</color>
 
+
+    <color name="lightblue">#4D8EFF</color>
+    <color name="darktblue">#3B5998</color>
+    <color name="textGrey">#7C7C7C</color>
+    <color name="primaryColor">#53B175</color>
+
 </resources>
 

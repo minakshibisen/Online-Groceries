@@ -28,7 +28,7 @@
             android:label="@string/title_activity_verify_mobile"
             android:theme="@style/Theme.OnlineGroceries" />
         <activity
-            android:name=".activity.SignUpActivity"
+            android:name=".activity.SignInActivity"
             android:exported="false" />
         <activity
             android:name=".activity.LoginActivity"
@@ -40,7 +40,7 @@
             android:name=".activity.VerificationActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.SignInActivity"
+            android:name=".activity.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".activity.OnboardingActivity"

@@ -19,6 +19,7 @@
             android:id="@+id/view_fruit"
             android:layout_width="@dimen/_75sdp"
             android:layout_height="@dimen/_60sdp"
+            android:src="@drawable/detail_fruit"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp" />
 
@@ -40,6 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/text_fruit_name"
             android:layout_marginTop="@dimen/_5sdp"
+            android:text="Kashmiri Apple"
             android:fontFamily="@font/gilroy_medium"
             android:textColor="@color/text_label_black"
             android:textFontWeight="400"
@@ -56,6 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:text="Rs.2046"
                 android:fontFamily="@font/gilroy_bold"
                 android:textColor="@color/black"
                 android:textFontWeight="400"

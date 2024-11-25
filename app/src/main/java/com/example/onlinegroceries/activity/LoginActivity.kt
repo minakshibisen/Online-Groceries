@@ -25,13 +25,20 @@ class LoginActivity : AppCompatActivity() {
         session = Session(this)
 
         setContentView(binding.root)
+        binding.signUp.setOnClickListener{
+            startActivity(
+                Intent(
+                    this@LoginActivity, SignUpActivity::class.java
+                )
+            )
+        }
         binding.btnLogin.setOnClickListener {
-           /* startActivity(
+            startActivity(
                 Intent(
                     this@LoginActivity, MainActivity::class.java
                 )
-            )*/
-            login(binding.edtEmail.text.toString(), binding.edtPassword.text.toString())
+            )
+          //  login(binding.emailInput.text.toString(), binding.passwordInput.text.toString())
         }
     }
     private fun login(email: String?, password: String?) {

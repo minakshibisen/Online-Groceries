@@ -18,6 +18,7 @@ import retrofit2.Response
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var session: Session
+
     @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,28 +29,35 @@ class SignUpActivity : AppCompatActivity() {
 
         val phone: String? = intent.getStringExtra("phone")
 
-        binding.textSignup.setOnClickListener {
+        /* binding.textSignup.setOnClickListener {
 
-            if (binding.edtUserName.text.isEmpty()) {
-                binding.edtUserName.error = "please enter UserName"
-                binding.edtUserName.requestFocus()
-            }
-            if (binding.edtEmail.text.isEmpty()) {
-                binding.edtEmail.error = "please enter Email"
-                binding.edtEmail.requestFocus()
-            }
-            if (binding.edtPassword.text.isEmpty()) {
-                binding.edtPassword.error = "please enter Password"
-                binding.edtPassword.requestFocus()
-            } else signup(
-                phone,
-                binding.edtEmail.text.toString(),
-                binding.edtUserName.text.toString(),
-                binding.edtPassword.text.toString()
+             if (binding.edtUserName.text.isEmpty()) {
+                 binding.edtUserName.error = "please enter UserName"
+                 binding.edtUserName.requestFocus()
+             }
+             if (binding.edtEmail.text.isEmpty()) {
+                 binding.edtEmail.error = "please enter Email"
+                 binding.edtEmail.requestFocus()
+             }
+             if (binding.edtPassword.text.isEmpty()) {
+                 binding.edtPassword.error = "please enter Password"
+                 binding.edtPassword.requestFocus()
+             } else signup(
+                 phone,
+                 binding.edtEmail.text.toString(),
+                 binding.edtUserName.text.toString(),
+                 binding.edtPassword.text.toString()
+             )
+         }*/
+        binding.manualLoginButton.setOnClickListener {
+            startActivity(
+                Intent(
+                    this@SignUpActivity, MainActivity::class.java
+                )
             )
         }
 
-        binding.textLogin.setOnClickListener {
+        binding.textSignUp.setOnClickListener {
             startActivity(
                 Intent(
                     this@SignUpActivity, LoginActivity::class.java
@@ -57,6 +65,7 @@ class SignUpActivity : AppCompatActivity() {
             )
         }
     }
+
     private fun signup(phone: String?, username: String?, email: String?, password: String?) {
         val map: MutableMap<String, String?> = HashMap()
         map["phone"] = phone
