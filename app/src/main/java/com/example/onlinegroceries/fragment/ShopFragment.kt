@@ -26,7 +26,6 @@ import retrofit2.Response
 class ShopFragment : Fragment() {
 
     private lateinit var binding: FragmentShopBinding
-
     private lateinit var session: Session
     private val data = ArrayList<DashboardDataModel.Data>()
     override fun onCreateView(
@@ -57,8 +56,6 @@ class ShopFragment : Fragment() {
             false
         )
 
-
-
     /*    binding.recyExclusive.adapter = DashboardCategoryAdapter(
             data, context
         )
@@ -71,8 +68,6 @@ class ShopFragment : Fragment() {
        // getDashboardList()
         return binding.root
     }
-
-
 
     private fun getDashboardList() {
         val map: MutableMap<String, String?> = HashMap()
@@ -154,5 +149,6 @@ class ShopFragment : Fragment() {
             }
         })
     }
+
 }
 

@@ -3,7 +3,6 @@ package com.example.onlinegroceries.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.onlinegroceries.databinding.BestSellingItemLayoutBinding
 import com.example.onlinegroceries.model.DashboardDataModel.Data
@@ -14,7 +13,6 @@ class DashboardCategoryAdapter(var data:List<Data>, conanytext: Context?) :
 
     init {
         this.context = context
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -23,7 +21,6 @@ class DashboardCategoryAdapter(var data:List<Data>, conanytext: Context?) :
                 LayoutInflater.from(parent.context), parent, false
             )
         )
-
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
