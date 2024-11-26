@@ -13,7 +13,7 @@ import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.onlinegroceries.R
 import com.example.onlinegroceries.activity.SelectLocationActivity
-import com.example.onlinegroceries.adapter.DashboardCategoryAdapter
+import com.example.onlinegroceries.adapter.ExclusiveProductAdapter
 import com.example.onlinegroceries.databinding.FragmentShopBinding
 import com.example.onlinegroceries.model.BannerModel
 import com.example.onlinegroceries.model.DashboardDataModel
@@ -40,21 +40,26 @@ class ShopFragment : Fragment() {
                val product1 = ArrayList<DashboardDataModel.Data.Product>()
                product1.add(DashboardDataModel.Data.Product("fgf", "fgf", "banana", "200", "7"))
 
-               data.add(DashboardDataModel.Data("esd", 1, product1))
-/*
-          val slideModel = SlideModel(R.drawable.banner, ScaleTypes.FIT)
-                slideModelArrayList1.add(SlideModel(R.drawable.banner, ScaleTypes.FIT))
-                val slideModel2 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
-                val slideModel3 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
-                slideModelArrayList1.add(slideModel)
-                slideModelArrayList1.add(slideModel2)
-                slideModelArrayList1.add(slideModel3)
-                binding.imageSlider1.setImageList(slideModelArrayList1, ScaleTypes.FIT)
+              // data.add(DashboardDataModel.Data("esd", 1, product1))
 
-                val slideModel1 = SlideModel(R.drawable.banner, ScaleTypes.FIT)
-                val slideModel21 = SlideModel(R.drawable.slider5, ScaleTypes.FIT)*/
-/*
-        binding.recyExclusive.adapter = DashboardCategoryAdapter(
+        binding.recyclerView.adapter =
+            ExclusiveProductAdapter (data,context)
+        binding.recyclerView.layoutManager = LinearLayoutManager(
+            context,
+            LinearLayoutManager.HORIZONTAL,
+            false
+        )
+        binding.recyclerView1.adapter =
+            ExclusiveProductAdapter (data,context)
+        binding.recyclerView1.layoutManager = LinearLayoutManager(
+            context,
+            LinearLayoutManager.HORIZONTAL,
+            false
+        )
+
+
+
+    /*    binding.recyExclusive.adapter = DashboardCategoryAdapter(
             data, context
         )
         binding.recyExclusive.layoutManager = LinearLayoutManager(
@@ -63,9 +68,11 @@ class ShopFragment : Fragment() {
 
         //  getBannerlist()
 
-        getDashboardList()
+       // getDashboardList()
         return binding.root
     }
+
+
 
     private fun getDashboardList() {
         val map: MutableMap<String, String?> = HashMap()
@@ -83,12 +90,12 @@ class ShopFragment : Fragment() {
                             if (response.body()!!.result) {
                                 val data = response.body()!!.data
 
-                                binding.recyExclusive.adapter = DashboardCategoryAdapter(
-                                    data, context
-                                )
-                                binding.recyExclusive.layoutManager = LinearLayoutManager(
-                                    context, LinearLayoutManager.VERTICAL, false
-                                )
+//                                binding.recyExclusive.adapter = DashboardCategoryAdapter(
+//                                    data, context
+//                                )
+//                                binding.recyExclusive.layoutManager = LinearLayoutManager(
+//                                    context, LinearLayoutManager.VERTICAL, false
+//                                )
                             } else {
 
                             }

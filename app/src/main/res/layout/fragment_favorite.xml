@@ -17,12 +17,12 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:drawablePadding="@dimen/_10sdp"
             android:fontFamily="@font/gilroy_bold"
-            android:padding="@dimen/_10sdp"
+            android:layout_marginVertical="@dimen/_20sdp"
             android:text="@string/favorite"
             android:textColor="@color/black"
-            android:textSize="@dimen/_14sdp" />
+            android:textSize="@dimen/_16sdp" />
+
 
     </RelativeLayout>
 
@@ -31,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1sdp"
         android:layout_below="@id/header"
-        android:layout_marginTop="@dimen/_3sdp"
+
         android:background="@color/light_gray" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -52,7 +52,7 @@
         android:layout_gravity="center"
         android:layout_marginHorizontal="@dimen/_14sdp"
         android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
         android:background="@drawable/custom_bg_btn"
         android:gravity="center"
         android:padding="@dimen/_14sdp"

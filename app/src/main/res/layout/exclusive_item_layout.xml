@@ -11,17 +11,17 @@
         android:layout_margin="@dimen/_5sdp"
         android:background="@drawable/bg_shop_layout"
         android:orientation="vertical"
-        android:paddingHorizontal="@dimen/_15sdp"
-        android:paddingVertical="@dimen/_10sdp"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:paddingVertical="@dimen/_15sdp"
         android:paddingBottom="@dimen/_5sdp">
 
         <ImageView
             android:id="@+id/view_fruit"
             android:layout_width="@dimen/_75sdp"
             android:layout_height="@dimen/_60sdp"
-            android:src="@drawable/detail_fruit"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_10sdp" />
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/img_banana" />
 
 
         <TextView
@@ -31,6 +31,7 @@
             android:layout_below="@id/view_fruit"
             android:layout_marginTop="@dimen/_15sdp"
             android:fontFamily="@font/gilroy_bold"
+            android:text="Organic Banana"
             android:textColor="@color/black"
             android:textFontWeight="400"
             android:textSize="@dimen/_12sdp" />
@@ -41,8 +42,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/text_fruit_name"
             android:layout_marginTop="@dimen/_5sdp"
-            android:text="Kashmiri Apple"
             android:fontFamily="@font/gilroy_medium"
+            android:text="7pac,hjd"
             android:textColor="@color/text_label_black"
             android:textFontWeight="400"
             android:textSize="@dimen/_8sdp" />
@@ -58,8 +59,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:text="Rs.2046"
                 android:fontFamily="@font/gilroy_bold"
+                android:text="$ 4.09"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textFontWeight="400"
                 android:textSize="@dimen/_14sdp" />

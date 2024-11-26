@@ -7,6 +7,7 @@
     <color name="rippleColor">#CACACA</color>
     <color name="dark_gray">#8F8F8F</color>
     <color name="light_gray">#E1E1E1</color>
+    <color name="lightest_gray">#F2F3F2</color>
 
     <color name="search_bg_color">#F2F3F2</color>
 

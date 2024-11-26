@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.onlinegroceries.R
 import com.example.onlinegroceries.databinding.BestSellingItemLayoutBinding
 import com.example.onlinegroceries.model.DashboardDataModel.Data
 
@@ -29,7 +28,7 @@ class DashboardCategoryAdapter(var data:List<Data>, conanytext: Context?) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val current = data[position]
-        holder.binding.textExclusiveOffer.text = current.cat_id
+     /*   holder.binding.textExclusiveOffer.text = current.cat_id
         holder.binding.textViewAll.text = current.cat_id
 
         holder.binding.recyclerView.adapter =
@@ -38,7 +37,7 @@ class DashboardCategoryAdapter(var data:List<Data>, conanytext: Context?) :
             context,
             LinearLayoutManager.HORIZONTAL,
             false
-        )
+        )*/
 
     }
 
